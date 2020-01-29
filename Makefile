@@ -8,15 +8,16 @@ PMW_SYNTAX_DIR=$(PANDOC_MD_WIKI_PANDOC_SYNTAX)
 
 REVEALJS_DEV_MODE := 0
 
-REVEALJS_ASSETS_DIRNAME=revealjs_assets
+REVEALJS_ASSETS_DIRNAME=revealjs-assets
 
 ifeq ($(REVEALJS_DEV_MODE), 1)
-  REVEALJS_URL=$(REVEAL_JS_SRC)
+  # REVEALJS_URL=$(REVEAL_JS_SRC)
+  REVEALJS_URL=./$(REVEALJS_ASSETS_DIRNAME)
 else
-# Bundle mode:
-# REVEALJS_URL=./$(REVEALJS_ASSETS_DIRNAME)
+  # Bundle mode:
+  REVEALJS_URL=./$(REVEALJS_ASSETS_DIRNAME)
 
-  REVEALJS_URL=http://lab.hakim.se/reveal-js
+  # REVEALJS_URL=https://lab.hakim.se/reveal-js
 endif
 
 
@@ -83,11 +84,12 @@ REVEALJS_INCREMENTAL_ARG=--incremental
 ifeq ($(REVEALJS_DEV_MODE), 1)
   REVEALJS_SELF_CONT_ARG=
 else
+  REVEALJS_SELF_CONT_ARG=
   # Still leaves some refs such as plugins and others. However, the presentation
   # runs fine without it in firefox. The only thing I notive is I no longer can
   # access speaker notes. However chromium does not seem to support the self
   # contained version when unconnected.
-  REVEALJS_SELF_CONT_ARG=--self-contained
+  # REVEALJS_SELF_CONT_ARG=--self-contained
 endif
 
 REVEALJS_TEMPLATE_ARG = --template=./style/revealjs.template
@@ -108,30 +110,58 @@ SLIDES_FR_SRCS := $(shell \
 	find . -mindepth 1 -maxdepth 1 -type f -name '*.fr.md' $(EXCLUDED_DIR_FIND_ARGS) -printf '%P\n' | sort)
 
 .PHONY: \
-	all \
 	clean \
+	all \
+	clean-published-site \
 	publish-site \
+	clean-published-slides \
 	publish-slides \
 	publish-slides-current \
+	clean-slides \
 	slides \
+	clean-revealjs \
 	revealjs \
-	revealjs-and-preview
+	revealjs-and-preview \
+	clean-revealjs-local-assets
+	revealjs-local-assets \
 
 all: \
 	slides
 
+clean: \
+	clean-slides
+
+clean-published-site: \
+	clean-published-slides
+
 publish-site: \
 	publish-slides
 
+clean-published-slides:
+	rm -rf ./docs/revealjs-assets
+	rm -rf ./docs/media
+	rm -rf ./docs/css
+	rm -f ./docs/*.fr.html
+
 publish-slides: | slides publish-slides-current
 
-publish-slides-current:
+publish-slides-current: | clean-published-slides
 	mkdir -p ./docs
-	cp slides-revealjs.fr.html ./docs/slides-revealjs.fr.html
+	cp --no-preserve=mode -r -H ./revealjs-assets ./docs/revealjs-assets
+	cp -r ./media ./docs/media
+	cp -r ./css ./docs/css
+	cp ./slides-revealjs.fr.html ./docs/slides-revealjs.fr.html
+
+clean-slides: \
+	clean-revealjs
 
 slides: revealjs
 
-revealjs: $(SLIDES_FR_SRCS)
+clean-revealjs: clean-revealjs-local-assets
+	rm -rf ./media
+	rm slides-revealjs.fr.html
+
+revealjs: revealjs-local-assets $(SLIDES_FR_SRCS)
 	PANDOC_MD_WIKI_REL_PATH_FROM_PAGE_TO_ROOT_DIR="$(call FN_SRC_REL_TO_ROOT,slides.fr.md)" \
 	pandoc -s \
 		$(REVEALJS_SELF_CONT_ARG) \
@@ -141,7 +171,7 @@ revealjs: $(SLIDES_FR_SRCS)
 		--slide-level=2	\
 		--extract-media "./media" \
 		--resource-path "." \
-		--css "./style/revealjs.css" \
+		--css "./css/revealjs.css" \
 		-V theme=$(REVEALJS_THEME) \
 		-V transistion="$(REVEALJS_TRANSITION)" \
 		-V backgroundTransition="$(REVEALJS_BG_TRANSITION)" \
@@ -155,6 +185,13 @@ revealjs: $(SLIDES_FR_SRCS)
 		$(REVEALJS_FILTER_ARGS) \
 		$(SLIDES_FR_SRCS)
 
+
 revealjs-and-preview: revealjs
 	firefox ./slides-revealjs.fr.html
+
+clean-revealjs-local-assets:
+	! test -e ./$(REVEALJS_ASSETS_DIRNAME) || unlink ./$(REVEALJS_ASSETS_DIRNAME)
+
+revealjs-local-assets:
+	ln -fsT "$(REVEAL_JS_SRC)" ./$(REVEALJS_ASSETS_DIRNAME)
 

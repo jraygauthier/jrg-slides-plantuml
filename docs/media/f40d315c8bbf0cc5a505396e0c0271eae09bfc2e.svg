@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="417px" preserveAspectRatio="none" style="width:153px;height:417px;background:#AAFFFF;" version="1.1" viewBox="0 0 153 417" width="153px" zoomAndPan="magnify"><defs><filter height="300%" id="f1qll00k1v2b3i" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="74" cy="18" fill="#FF0000" filter="url(#f1qll00k1v2b3i)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#808000" filter="url(#f1qll00k1v2b3i)" height="33.9688" rx="12.5" ry="12.5" style="stroke: #CD853F; stroke-width: 1.5;" width="136" x="6" y="68"/><text fill="#000000" font-family="Impact" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="116" x="16" y="89.1387">Climbs on Platform</text><rect fill="#8B4513" filter="url(#f1qll00k1v2b3i)" height="8" style="stroke: none; stroke-width: 1.0;" width="80" x="34" y="142"/><rect fill="#CD853F" filter="url(#f1qll00k1v2b3i)" height="33.9688" rx="12.5" ry="12.5" style="stroke: #CD853F; stroke-width: 1.5;" width="52" x="48" y="190"/><text fill="#000000" font-family="Impact" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="32" x="58" y="211.1387">Bows</text><rect fill="#8B4513" filter="url(#f1qll00k1v2b3i)" height="8" style="stroke: none; stroke-width: 1.0;" width="80" x="34" y="264"/><rect fill="#CD853F" filter="url(#f1qll00k1v2b3i)" height="33.9688" rx="12.5" ry="12.5" style="stroke: #CD853F; stroke-width: 1.5;" width="99" x="24.75" y="312"/><text fill="#000000" font-family="Impact" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="79" x="34.75" y="333.1387">WavesArmes</text><ellipse cx="74" cy="396" fill="none" filter="url(#f1qll00k1v2b3i)" rx="10" ry="10" style="stroke: #C0C0C0; stroke-width: 1.0;"/><ellipse cx="74.5" cy="396.5" fill="#C0C0C0" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"/><!--link start to Climbs on Platform--><path d="M74,28.038 C74,36.932 74,50.844 74,62.572 " fill="none" id="start-Climbs on Platform" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="74,67.781,78,58.781,74,62.781,70,58.781,74,67.781" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Climbs on Platform to S1--><path d="M74,102.122 C74,113.211 74,127.499 74,136.456 " fill="none" id="Climbs on Platform-S1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="74,141.701,78,132.701,74,136.701,70,132.701,74,141.701" style="stroke: #A80036; stroke-width: 1.0;"/><!--link S1 to Bows--><path d="M74,150.172 C74,156.68 74,172.021 74,184.978 " fill="none" id="S1-Bows" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="74,189.985,78,180.985,74,184.985,70,180.985,74,189.985" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Bows to S2--><path d="M74,224.122 C74,235.211 74,249.499 74,258.456 " fill="none" id="Bows-S2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="74,263.701,78,254.701,74,258.701,70,254.701,74,263.701" style="stroke: #A80036; stroke-width: 1.0;"/><!--link S2 to WavesArmes--><path d="M74,272.172 C74,278.68 74,294.021 74,306.9777 " fill="none" id="S2-WavesArmes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="74,311.9851,78,302.9851,74,306.9851,70,302.9851,74,311.9851" style="stroke: #A80036; stroke-width: 1.0;"/><!--link WavesArmes to end--><path d="M74,346.0674 C74,356.5986 74,370.2536 74,380.4618 " fill="none" id="WavesArmes-end" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="74,385.7367,78,376.7367,74,380.7367,70,376.7367,74,385.7367" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+
+skinparam backgroundColor #AAFFFF
+skinparam activity {
+  StartColor red
+  BarColor SaddleBrown
+  EndColor Silver
+  BackgroundColor Peru
+  BackgroundColor<< Begin >> Olive
+  BorderColor Peru
+  FontName Impact
+}
+
+(*) - -> "Climbs on Platform" << Begin >>
+- -> === S1 ===
+- -> Bows
+- -> === S2 ===
+- -> WavesArmes
+- -> (*)
+
+@enduml
+
+PlantUML version 1.2019.08(Sat Jul 13 15:25:14 EDT 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-ga
+Operating System: Linux
+OS Version: 4.19.84
+Default Encoding: UTF-8
+Language: en
+Country: GB
+--></g></svg>

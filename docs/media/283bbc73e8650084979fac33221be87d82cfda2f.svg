@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="445px" preserveAspectRatio="none" style="width:210px;height:445px;background:#FFFFE0;" version="1.1" viewBox="0 0 210 445" width="210px" zoomAndPan="magnify"><defs><filter height="300%" id="f1czevqex56ro1" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="102" cy="18" fill="#0000CD" filter="url(#f1czevqex56ro1)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><ellipse cx="102" cy="424" fill="none" filter="url(#f1czevqex56ro1)" rx="10" ry="10" style="stroke: #FF0000; stroke-width: 1.0;"/><ellipse cx="102.5" cy="424.5" fill="#FF0000" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"/><rect fill="#CD853F" filter="url(#f1czevqex56ro1)" height="266.2969" rx="12.5" ry="12.5" style="stroke: #808080; stroke-width: 1.5;" width="192.5" x="6" y="88"/><rect fill="#FFFFE0" height="234" rx="12.5" ry="12.5" style="stroke: #FFFFE0; stroke-width: 1.0;" width="186.5" x="9" y="117.2969"/><line style="stroke: #808080; stroke-width: 1.5;" x1="6" x2="198.5" y1="114.2969" y2="114.2969"/><text fill="#000000" font-family="Impact" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="130" x="37.25" y="105.9951">Not Shooting State</text><rect fill="#808000" filter="url(#f1czevqex56ro1)" height="50" rx="12.5" ry="12.5" style="stroke: #808080; stroke-width: 1.5;" width="88" x="44.75" y="185.2969"/><line style="stroke: #808080; stroke-width: 1.5;" x1="44.75" x2="132.75" y1="211.5938" y2="211.5938"/><text fill="#000000" font-family="Impact" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="68" x="54.75" y="203.292">Idle mode</text><rect fill="#CD853F" filter="url(#f1czevqex56ro1)" height="50" rx="12.5" ry="12.5" style="stroke: #808080; stroke-width: 1.5;" width="143" x="17" y="289.2969"/><line style="stroke: #808080; stroke-width: 1.5;" x1="17" x2="160" y1="315.5938" y2="315.5938"/><text fill="#000000" font-family="Impact" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="123" x="27" y="307.292">Configuring mode</text><ellipse cx="88.25" cy="137.2969" fill="#0000CD" filter="url(#f1czevqex56ro1)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><!--link *start*NotShooting to Idle--><path d="M88.25,147.5789 C88.25,155.7929 88.25,168.2389 88.25,179.8079 " fill="none" id="*start*NotShooting-Idle" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="88.25,185.0429,92.25,176.0429,88.25,180.0429,84.25,176.0429,88.25,185.0429" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Idle to Configuring--><path d="M60.4352,235.3259 C55.8656,240.7355 51.796,246.8135 49.25,253.2969 C44.9189,264.3262 49.2282,275.4654 56.3409,285.1017 " fill="none" id="Idle-Configuring" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="59.5438,289.1348,57.0791,279.5993,56.4343,285.2193,50.8143,284.5745,59.5438,289.1348" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="55" x="50.25" y="266.3638">EvConfig</text><!--link Configuring to Idle--><path d="M101.3188,289.0223 C103.7722,283.3596 105.9677,277.2425 107.25,271.2969 C109.4672,261.0165 107.3313,249.985 103.8023,240.2204 " fill="none" id="Configuring-Idle" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="101.9709,235.5379,101.5237,245.3766,103.792,240.1944,108.9742,242.4628,101.9709,235.5379" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="55" x="108.25" y="266.3638">EvConfig</text><!--link *start to NotShooting--><path d="M102,28.159 C102,39.226 102,59.26 102,82.336 " fill="none" id="*start-NotShooting" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="102,87.622,106,78.622,102,82.622,98,78.622,102,87.622" style="stroke: #A80036; stroke-width: 1.0;"/><!--link NotShooting to *end--><path d="M102,354.1084 C102,376.1088 102,395.8592 102,408.513 " fill="none" id="NotShooting-*end" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="102,413.8101,106,404.8101,102,408.8101,98,404.8101,102,413.8101" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+skinparam backgroundColor LightYellow
+skinparam state {
+  StartColor MediumBlue
+  EndColor Red
+  BackgroundColor Peru
+  BackgroundColor<<Warning>> Olive
+  BorderColor Gray
+  FontName Impact
+}
+
+[*] - -> NotShooting
+
+state "Not Shooting State" as NotShooting {
+  state "Idle mode" as Idle <<Warning>>
+  state "Configuring mode" as Configuring
+  [*] - -> Idle
+  Idle - -> Configuring : EvConfig
+  Configuring - -> Idle : EvConfig
+}
+
+NotShooting - -> [*]
+@enduml
+
+PlantUML version 1.2019.08(Sat Jul 13 15:25:14 EDT 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-ga
+Operating System: Linux
+OS Version: 4.19.84
+Default Encoding: UTF-8
+Language: en
+Country: GB
+--></g></svg>

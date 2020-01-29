@@ -3,7 +3,7 @@
 /slides-*.pdf
 /slides-*.docx
 /*slides-*.zip
-/revealjs_assets
+/revealjs-assets
 /media/
 **/.pytest_cache/
 **/__pycache__/
