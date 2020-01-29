@@ -6,7 +6,7 @@ FN_SRC_REL_TO_ROOT = $(shell realpath --relative-to "$(shell dirname "$(SRC_ROOT
 PMW_FILTER_DIR=$(PANDOC_MD_WIKI_PANDOC_FILTERS)
 PMW_SYNTAX_DIR=$(PANDOC_MD_WIKI_PANDOC_SYNTAX)
 
-REVEALJS_DEV_MODE := 1
+REVEALJS_DEV_MODE := 0
 
 REVEALJS_ASSETS_DIRNAME=revealjs_assets
 
@@ -107,8 +107,20 @@ EXCLUDED_DIR_FIND_ARGS := -not -path '*/.git/*'
 SLIDES_FR_SRCS := $(shell \
 	find . -mindepth 1 -maxdepth 1 -type f -name '*.fr.md' $(EXCLUDED_DIR_FIND_ARGS) -printf '%P\n' | sort)
 
+.PHONY: all clean slides site revealjs revealjs-and-preview
+
 all: \
-	revealjs
+	slides \
+	site
+
+site: \
+	slides \
+	index
+
+index: index.md
+	pandoc -s -o index.html index.md
+
+slides: revealjs
 
 revealjs: $(SLIDES_FR_SRCS)
 	PANDOC_MD_WIKI_REL_PATH_FROM_PAGE_TO_ROOT_DIR="$(call FN_SRC_REL_TO_ROOT,slides.fr.md)" \
@@ -137,4 +149,3 @@ revealjs: $(SLIDES_FR_SRCS)
 revealjs-and-preview: revealjs
 	firefox ./slides-revealjs.fr.html
 
-.PHONY: all clean
