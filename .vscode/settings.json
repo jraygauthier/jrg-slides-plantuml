@@ -1,0 +1,29 @@
+{
+    "[markdown]":  {
+        "editor.tabSize": 4,
+        "files.trimTrailingWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.wordWrapColumn": 80,
+        "editor.wrappingIndent": "same",
+        "editor.trimAutoWhitespace": true,
+    },
+    "markdownlint.config": {
+        "default": true,
+        "MD003": false/*{
+            "style": "setext_with_atx"
+        }*/,
+        "MD006": false,
+        // "MD007": { "indent": 1 },
+        "MD007": false,
+        "MD030": {
+            "ul_single": 2,
+            "ol_single": 1,
+            "ul_multi": 2,
+            "ol_multi": 1
+        },
+        "MD012": {"maximum": 2 },
+        "MD025": false,
+        "MD024": false,
+        "MD040": false
+    },
+}
