@@ -107,18 +107,27 @@ EXCLUDED_DIR_FIND_ARGS := -not -path '*/.git/*'
 SLIDES_FR_SRCS := $(shell \
 	find . -mindepth 1 -maxdepth 1 -type f -name '*.fr.md' $(EXCLUDED_DIR_FIND_ARGS) -printf '%P\n' | sort)
 
-.PHONY: all clean slides site revealjs revealjs-and-preview
+.PHONY: \
+	all \
+	clean \
+	publish-site \
+	publish-slides \
+	publish-slides-current \
+	slides \
+	revealjs \
+	revealjs-and-preview
 
 all: \
-	slides \
-	site
+	slides
 
-site: \
-	slides \
-	index
+publish-site: \
+	publish-slides
 
-index: index.md
-	pandoc -s -o index.html index.md
+publish-slides: | slides publish-slides-current
+
+publish-slides-current:
+	mkdir -p ./docs
+	cp slides-revealjs.fr.html ./docs/slides-revealjs.fr.html
 
 slides: revealjs
 

@@ -55,6 +55,31 @@ This will allow for the task we setup in `.vscode/tasks.json` to proceed correct
  -  `Ctrl + Shift + b`: runs `make revealjs`.
 
 
+GitHub pages
+------------
+
+This slide show is currently hosted on [GitHub Pages].
+
+Here's the link: <https://amotus.github.io/jrg-slides-plantuml/>.
+
+The source for the index page is [docs/index.md](./docs/index.md).
+
+GitHub is in charge of rendering `index.md` to a *html* page through
+Jekyll.
+
+
+### Publishing an updated version of the slides
+
+```bash
+$ make publish-site
+# ..
+```
+
+This will make the slides and copy the result to their expected
+location under the `./docs/` folder (which GitHub takes as input
+for the hosted web site).
+
+
 License
 -------
 
@@ -84,4 +109,4 @@ is or adapted from <https://plantuml.com/>.
 
 [nix]: https://nixos.org/nix/download.html
 [Giphy]:https://giphy.com/
-
+[GitHub Pages]: https://pages.github.com/
