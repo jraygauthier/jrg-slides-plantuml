@@ -465,17 +465,54 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
 <div class="sourceCode" id="cb11"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">@startuml</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>alice <span class="op">-&gt;</span> bob ++ : <span class="do">hello</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a>bob <span class="op">-&gt;</span> bob ++ : <span class="do">self</span> <span class="do">call</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>bob <span class="op">-&gt;</span> bib ++  #005500 : <span class="do">hello</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>bob <span class="op">-&gt;</span> george ** : <span class="do">create</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="cf">return</span> done</span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="cf">return</span> rc</span>
-<span id="cb11-8"><a href="#cb11-8"></a>bob <span class="op">-&gt;</span> george !! : <span class="do">delete</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="cf">return</span> success</span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="kw">@enduml</span></span></code></pre></div>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">hide</span> <span class="kw">footbox</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">actor</span> <span class="va">user</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="kw">participant</span> <span class="va">webfrontend</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="kw">participant</span> <span class="va">webserver</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">participant</span> <span class="va">hwdevice</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="kw">participant</span> <span class="va">os</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a></span>
+<span id="cb11-9"><a href="#cb11-9"></a>user <span class="op">-&gt;</span> hwdevice ++ : <span class="do">power</span> <span class="do">on</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>hwdevice <span class="op">-&gt;</span> hwdevice ++: <span class="do">boot</span> <span class="do">process</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a>hwdevice <span class="op">-&gt;</span> os ++: <span class="do">boot</span> <span class="do">loader</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>os <span class="op">-&gt;</span> webserver **: <span class="do">launch</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="kw">activate</span> webserver</span>
+<span id="cb11-14"><a href="#cb11-14"></a><span class="cf">return</span> success</span>
+<span id="cb11-15"><a href="#cb11-15"></a>os <span class="op">-&gt;</span> webfrontend **: <span class="do">launch</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a><span class="kw">activate</span> webfrontend</span>
+<span id="cb11-17"><a href="#cb11-17"></a>webfrontend <span class="op">-&gt;</span> webserver ++: <span class="do">request</span> <span class="do">html</span> <span class="do">ui</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a><span class="cf">return</span> html ui</span>
+<span id="cb11-19"><a href="#cb11-19"></a>webfrontend <span class="op">--&gt;</span> os : <span class="do">success</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a><span class="kw">deactivate</span> webfrontend</span>
+<span id="cb11-21"><a href="#cb11-21"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
-<p><img data-src="./media/383a05df7d6ae028fd1b1a48e40e20845351be16.svg" alt="puml" /></p>
+<p><img data-src="./media/85504dece0f36f38b8c5ea7edeec813b07a35277.svg" alt="puml" /></p>
+</div>
+</div>
+</section><section id="types-de-diagrammes---sequence-suite" class="slide level2">
+<h2>Types de diagrammes - Sequence (suite)</h2>
+<div class="pmw plantuml-content columns">
+<div class="pmw plantuml-code column">
+<div class="sourceCode" id="cb12"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">@startuml</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">hide</span> <span class="kw">footbox</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">actor</span> <span class="va">user</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="kw">participant</span> <span class="va">webfrontend</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="kw">participant</span> <span class="va">webserver</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="kw">participant</span> <span class="va">hwdevice</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="kw">participant</span> <span class="va">os</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a>user <span class="op">-&gt;&gt;</span> webfrontend ++: <span class="do">click</span> <span class="do">on</span> <span class="do">process</span> <span class="do">button</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>webfrontend <span class="op">-&gt;</span> webserver ++: <span class="do">request</span> <span class="do">processing</span> <span class="do">result</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>webserver <span class="op">-&gt;</span> hwdevice ++: <span class="do">request</span> <span class="do">sensor</span> <span class="do">state\nsample</span> <span class="do">(camera,</span> <span class="do">etc)</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="cf">return</span> sensors states</span>
+<span id="cb12-13"><a href="#cb12-13"></a>webserver <span class="op">-&gt;</span> webserver ++: <span class="do">process</span> <span class="do">sensor</span> <span class="do">states</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a><span class="cf">return</span> result</span>
+<span id="cb12-15"><a href="#cb12-15"></a>webfrontend <span class="op">-&gt;</span> webfrontend ++: <span class="do">render</span> <span class="do">into</span> <span class="do">images</span></span>
+<span id="cb12-16"><a href="#cb12-16"></a><span class="cf">return</span> images</span>
+<span id="cb12-17"><a href="#cb12-17"></a>webfrontend <span class="op">-&gt;&gt;</span> user: <span class="do">images</span> <span class="do">as</span> <span class="do">light</span></span>
+<span id="cb12-18"><a href="#cb12-18"></a><span class="kw">@enduml</span></span></code></pre></div>
+</div><div class="pmw plantuml-output column">
+<p><img data-src="./media/8ff102bb59d2c7a2e3e1ee19638b6fe7b0bb1c46.svg" alt="puml" /></p>
 </div>
 </div>
 <ul>
@@ -485,16 +522,35 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - Class</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb12"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">@startuml</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>Object <span class="op">&lt;|--</span> ArrayList</span>
-<span id="cb12-3"><a href="#cb12-3"></a></span>
-<span id="cb12-4"><a href="#cb12-4"></a>Object : <span class="do">equals()</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>ArrayList : <span class="do">Object[]</span> <span class="do">elementData</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>ArrayList : <span class="do">size()</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">@startuml</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">interface</span> <span class="va">Animal</span> {</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    +get_name(): <span class="do">str</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>    +get_legs(): <span class="do">Leg[]</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>}</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="kw">class</span> <span class="va">Leg</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="kw">class</span> <span class="va">Fin</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="kw">class</span> <span class="va">Dog</span> {</span>
+<span id="cb13-10"><a href="#cb13-10"></a>    +barks()</span>
+<span id="cb13-11"><a href="#cb13-11"></a>}</span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="kw">class</span> <span class="va">Master</span>: {</span>
+<span id="cb13-13"><a href="#cb13-13"></a>    +run()</span>
+<span id="cb13-14"><a href="#cb13-14"></a>}</span>
+<span id="cb13-15"><a href="#cb13-15"></a></span>
+<span id="cb13-16"><a href="#cb13-16"></a>Animal <span class="op">&lt;|--</span> Dog: <span class="do">inherits</span></span>
+<span id="cb13-17"><a href="#cb13-17"></a>Animal <span class="op">&lt;|--</span> Dolphin: <span class="do">inherits</span></span>
+<span id="cb13-18"><a href="#cb13-18"></a>Lion <span class="op">-</span>|&gt; Animal: <span class="do">inherits</span></span>
+<span id="cb13-19"><a href="#cb13-19"></a></span>
+<span id="cb13-20"><a href="#cb13-20"></a>Lion <span class="op">o--&gt;</span> <span class="st">&quot;0-1&quot;</span> Dog: <span class="do">hold</span> <span class="do">in</span> <span class="do">its</span> <span class="do">mouth</span></span>
+<span id="cb13-21"><a href="#cb13-21"></a>Lion <span class="op">o--&gt;</span> <span class="st">&quot;0-1&quot;</span> Master: <span class="do">hold</span> <span class="do">in</span> <span class="do">its</span> <span class="do">mouth</span></span>
+<span id="cb13-22"><a href="#cb13-22"></a>Dog <span class="op">*--&gt;</span> <span class="st">&quot;4&quot;</span> Leg: <span class="do">has</span></span>
+<span id="cb13-23"><a href="#cb13-23"></a>Dolphin <span class="op">*--&gt;</span> <span class="st">&quot;0&quot;</span> Leg</span>
+<span id="cb13-24"><a href="#cb13-24"></a>Dolphin <span class="op">*--&gt;</span> <span class="st">&quot;1&quot;</span> Fin</span>
+<span id="cb13-25"><a href="#cb13-25"></a></span>
+<span id="cb13-26"><a href="#cb13-26"></a>Dog <span class="op">..&gt;</span> Master: <span class="do">depends</span> <span class="do">on</span> <span class="do">its</span></span>
+<span id="cb13-27"><a href="#cb13-27"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
-<p><img data-src="./media/69092e9203813cd39e98bda6dc9cf4b6d9669145.svg" alt="puml" /></p>
+<p><img data-src="./media/6634599fe66975f3aee039b32c9aefee225b0704.svg" alt="puml" /></p>
 </div>
 </div>
 <ul>
@@ -504,25 +560,35 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - Activity</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb13"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">@startuml</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="va">:foo1;</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="op">-&gt;</span> You can put text <span class="kw">on</span> arrows;</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="cf">if</span> (test) <span class="cf">then</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="op">-</span>[#blue]<span class="op">-&gt;</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="va">:foo2;</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="op">-</span>[#green,dashed]<span class="op">-&gt;</span> The text can</span>
-<span id="cb13-8"><a href="#cb13-8"></a>  <span class="kw">also</span> be <span class="kw">on</span> several lines</span>
-<span id="cb13-9"><a href="#cb13-9"></a>  and **very** long<span class="op">...</span>;</span>
-<span id="cb13-10"><a href="#cb13-10"></a>  <span class="va">:foo3;</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="cf">else</span></span>
-<span id="cb13-12"><a href="#cb13-12"></a>  <span class="op">-</span>[#black,dotted]<span class="op">-&gt;</span></span>
-<span id="cb13-13"><a href="#cb13-13"></a>  <span class="va">:foo4;</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="cf">endif</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a><span class="op">-</span>[#gray,bold]<span class="op">-&gt;</span></span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="va">:foo5;</span></span>
-<span id="cb13-17"><a href="#cb13-17"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">@startuml</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="cf">start</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="op">-&gt;</span> &lt;u&gt;**Systemd supports parallel boot!**&lt;/u&gt;;</span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="kw">partition</span> <span class="st">&quot;System Boot&quot;</span> {</span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="cf">fork</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="kw">partition</span> <span class="st">&quot;Update System&quot;</span> {</span>
+<span id="cb14-7"><a href="#cb14-7"></a>      <span class="cf">if</span> (requires updates?) <span class="cf">then</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>        <span class="cf">repeat</span> :<span class="do">Download</span> <span class="do">&lt;u&gt;*app*&lt;/u&gt;</span> <span class="do">update</span> <span class="do">package;</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>        <span class="cf">repeat</span> <span class="cf">while</span> (not ok and retry count\nnot exhausted)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>        <span class="cf">if</span> (download <span class="kw">package</span>?) <span class="cf">then</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>          <span class="op">-</span>[#green]<span class="op">-&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12"></a>          <span class="va">:Installing new &lt;u&gt;*app*&lt;/u&gt; package;</span></span>
+<span id="cb14-13"><a href="#cb14-13"></a>        <span class="cf">else</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>          <span class="op">-</span>[#red]<span class="op">-&gt;</span> Cannot proceed, this <span class="kw">is</span> not safe!</span>
+<span id="cb14-15"><a href="#cb14-15"></a>          **shuting <span class="kw">down</span>** the system<span class="op">...</span>;</span>
+<span id="cb14-16"><a href="#cb14-16"></a>          <span class="cf">end</span></span>
+<span id="cb14-17"><a href="#cb14-17"></a>        <span class="cf">endif</span></span>
+<span id="cb14-18"><a href="#cb14-18"></a>      <span class="cf">endif</span></span>
+<span id="cb14-19"><a href="#cb14-19"></a>    }</span>
+<span id="cb14-20"><a href="#cb14-20"></a>  <span class="cf">fork</span> <span class="cf">again</span></span>
+<span id="cb14-21"><a href="#cb14-21"></a>    <span class="va">:Launching postgres db;</span></span>
+<span id="cb14-22"><a href="#cb14-22"></a>    <span class="va">:Launching application backend;</span></span>
+<span id="cb14-23"><a href="#cb14-23"></a>  <span class="cf">end</span> <span class="cf">fork</span></span>
+<span id="cb14-24"><a href="#cb14-24"></a>}</span>
+<span id="cb14-25"><a href="#cb14-25"></a><span class="va">:Lauching application;</span></span>
+<span id="cb14-26"><a href="#cb14-26"></a><span class="cf">stop</span></span>
+<span id="cb14-27"><a href="#cb14-27"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
-<p><img data-src="./media/9471f7dba049922245830b67d86f3c1acee1ad9e.svg" alt="puml" /></p>
+<p><img data-src="./media/394889cdbbc21f20af5c1284180d79735bba3d9f.svg" alt="puml" /></p>
 </div>
 </div>
 <ul>
@@ -532,24 +598,24 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - Timing</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb14"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">@startuml</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>robust <span class="st">&quot;Web Browser&quot;</span> <span class="kw">as</span> WB</span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">concise</span> <span class="va">&quot;Web User&quot;</span> <span class="kw">as</span> <span class="va">WU</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a></span>
-<span id="cb14-5"><a href="#cb14-5"></a>WB <span class="kw">is</span> Initializing</span>
-<span id="cb14-6"><a href="#cb14-6"></a>WU <span class="kw">is</span> Absent</span>
-<span id="cb14-7"><a href="#cb14-7"></a></span>
-<span id="cb14-8"><a href="#cb14-8"></a>@WB</span>
-<span id="cb14-9"><a href="#cb14-9"></a>0 <span class="kw">is</span> idle</span>
-<span id="cb14-10"><a href="#cb14-10"></a>+200 <span class="kw">is</span> Processing</span>
-<span id="cb14-11"><a href="#cb14-11"></a>+100 <span class="kw">is</span> Waiting</span>
-<span id="cb14-12"><a href="#cb14-12"></a>WB@0 <span class="op">&lt;-&gt;</span> @50 : <span class="do">{50</span> <span class="do">ms</span> <span class="do">lag}</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a></span>
-<span id="cb14-14"><a href="#cb14-14"></a>@WU</span>
-<span id="cb14-15"><a href="#cb14-15"></a>0 <span class="kw">is</span> Waiting</span>
-<span id="cb14-16"><a href="#cb14-16"></a>+500 <span class="kw">is</span> ok</span>
-<span id="cb14-17"><a href="#cb14-17"></a>@200 <span class="op">&lt;-&gt;</span> @+150 : <span class="do">{150</span> <span class="do">ms}</span></span>
-<span id="cb14-18"><a href="#cb14-18"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">@startuml</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>robust <span class="st">&quot;Web Browser&quot;</span> <span class="kw">as</span> WB</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="kw">concise</span> <span class="va">&quot;Web User&quot;</span> <span class="kw">as</span> <span class="va">WU</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a>WB <span class="kw">is</span> Initializing</span>
+<span id="cb15-6"><a href="#cb15-6"></a>WU <span class="kw">is</span> Absent</span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-8"><a href="#cb15-8"></a>@WB</span>
+<span id="cb15-9"><a href="#cb15-9"></a>0 <span class="kw">is</span> idle</span>
+<span id="cb15-10"><a href="#cb15-10"></a>+200 <span class="kw">is</span> Processing</span>
+<span id="cb15-11"><a href="#cb15-11"></a>+100 <span class="kw">is</span> Waiting</span>
+<span id="cb15-12"><a href="#cb15-12"></a>WB@0 <span class="op">&lt;-&gt;</span> @50 : <span class="do">{50</span> <span class="do">ms</span> <span class="do">lag}</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a></span>
+<span id="cb15-14"><a href="#cb15-14"></a>@WU</span>
+<span id="cb15-15"><a href="#cb15-15"></a>0 <span class="kw">is</span> Waiting</span>
+<span id="cb15-16"><a href="#cb15-16"></a>+500 <span class="kw">is</span> ok</span>
+<span id="cb15-17"><a href="#cb15-17"></a>@200 <span class="op">&lt;-&gt;</span> @+150 : <span class="do">{150</span> <span class="do">ms}</span></span>
+<span id="cb15-18"><a href="#cb15-18"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/0ea801bed63575d3b33b261a99c1b759ef49f131.svg" alt="puml" /></p>
 </div>
@@ -561,30 +627,33 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - State</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb15"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">@startuml</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">scale</span> 350 width</span>
-<span id="cb15-3"><a href="#cb15-3"></a>[*] <span class="op">--&gt;</span> NotShooting</span>
-<span id="cb15-4"><a href="#cb15-4"></a></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="kw">state</span> <span class="va">NotShooting</span> {</span>
-<span id="cb15-6"><a href="#cb15-6"></a>  [*] <span class="op">--&gt;</span> Idle</span>
-<span id="cb15-7"><a href="#cb15-7"></a>  Idle <span class="op">--&gt;</span> Configuring : <span class="do">EvConfig</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>  Configuring <span class="op">--&gt;</span> Idle : <span class="do">EvConfig</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a>}</span>
-<span id="cb15-10"><a href="#cb15-10"></a></span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="kw">state</span> <span class="va">Configuring</span> {</span>
-<span id="cb15-12"><a href="#cb15-12"></a>  [*] <span class="op">--&gt;</span> NewValueSelection</span>
-<span id="cb15-13"><a href="#cb15-13"></a>  NewValueSelection <span class="op">--&gt;</span> NewValuePreview : <span class="do">EvNewValue</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a>  NewValuePreview <span class="op">--&gt;</span> NewValueSelection : <span class="do">EvNewValueRejected</span></span>
-<span id="cb15-15"><a href="#cb15-15"></a>  NewValuePreview <span class="op">--&gt;</span> NewValueSelection : <span class="do">EvNewValueSaved</span></span>
-<span id="cb15-16"><a href="#cb15-16"></a>  </span>
-<span id="cb15-17"><a href="#cb15-17"></a>  <span class="kw">state</span> <span class="va">NewValuePreview</span> {</span>
-<span id="cb15-18"><a href="#cb15-18"></a>    State1 <span class="op">-&gt;</span> State2</span>
-<span id="cb15-19"><a href="#cb15-19"></a>  }</span>
-<span id="cb15-20"><a href="#cb15-20"></a>  </span>
-<span id="cb15-21"><a href="#cb15-21"></a>}</span>
-<span id="cb15-22"><a href="#cb15-22"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">@startuml</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">state</span> <span class="va">&quot;Awaiting input&quot;</span> <span class="kw">as</span> <span class="va">State1</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">state</span> <span class="va">&quot;Looking for matches&quot;</span> <span class="kw">as</span> <span class="va">State2</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">state</span> <span class="va">&quot;Processing selection&quot;</span> <span class="kw">as</span> <span class="va">State4</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a></span>
+<span id="cb16-6"><a href="#cb16-6"></a>[*] <span class="op">-&gt;</span> State1</span>
+<span id="cb16-7"><a href="#cb16-7"></a>State1 <span class="op">--&gt;</span> State2 : <span class="do">Input</span> <span class="do">received</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a>State1 <span class="op">--&gt;</span> [*] : <span class="do">Timeout</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a>State2 <span class="op">--&gt;</span> State1 : <span class="do">No</span> <span class="do">matches</span> <span class="do">/</span> <span class="do">To</span> <span class="do">many</span> <span class="do">matches</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>State2 <span class="op">--&gt;</span> State4 : <span class="do">Single</span> <span class="do">match</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a>State2 <span class="op">--&gt;</span> State3 : <span class="do">Multiple</span> <span class="do">maches</span> <span class="do">found</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="kw">state</span> <span class="va">State3</span> {</span>
+<span id="cb16-13"><a href="#cb16-13"></a>  [*] <span class="op">--&gt;</span> State3A</span>
+<span id="cb16-14"><a href="#cb16-14"></a>  <span class="kw">state</span> <span class="va">&quot;CursorOnMatch1&quot;</span> <span class="kw">as</span> <span class="va">State3A</span></span>
+<span id="cb16-15"><a href="#cb16-15"></a>  <span class="kw">state</span> <span class="va">&quot;CursorOnMatch2&quot;</span> <span class="kw">as</span> <span class="va">State3B</span></span>
+<span id="cb16-16"><a href="#cb16-16"></a>  State3A <span class="op">--&gt;</span> State3B: <span class="do">Arrow</span> <span class="do">down</span></span>
+<span id="cb16-17"><a href="#cb16-17"></a>  State3A <span class="op">--&gt;</span> [*]: <span class="do">Enter</span> <span class="do">/</span> <span class="do">Esc</span> <span class="do">/</span> <span class="do">Ctrl+c</span></span>
+<span id="cb16-18"><a href="#cb16-18"></a>  State3B <span class="op">--&gt;</span> State3A: <span class="do">Arrow</span> <span class="do">up</span></span>
+<span id="cb16-19"><a href="#cb16-19"></a>  State3B <span class="op">--&gt;</span> [*]: <span class="do">Enter</span> <span class="do">/</span> <span class="do">Esc</span> <span class="do">/</span> <span class="do">Ctrl+c</span></span>
+<span id="cb16-20"><a href="#cb16-20"></a>}</span>
+<span id="cb16-21"><a href="#cb16-21"></a></span>
+<span id="cb16-22"><a href="#cb16-22"></a>State3 <span class="op">--&gt;</span> [*] : <span class="do">Selection</span> <span class="do">rejected</span> <span class="do">/</span> <span class="do">Aborted</span></span>
+<span id="cb16-23"><a href="#cb16-23"></a>State3 <span class="op">--&gt;</span> State4 : <span class="do">Single</span> <span class="do">match</span> <span class="do">selected</span></span>
+<span id="cb16-24"><a href="#cb16-24"></a>State4 <span class="op">--&gt;</span> [*]: <span class="do">Done</span></span>
+<span id="cb16-25"><a href="#cb16-25"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
-<p><img data-src="./media/61630e1be94eb745a9c2b3d2b60dc37aa9c84b9f.svg" alt="puml" /></p>
+<p><img data-src="./media/b15c37363ef24d16a682ccedcd77dc50a83772a5.svg" alt="puml" /></p>
 </div>
 </div>
 <ul>
@@ -594,18 +663,18 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - Use Case</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb16"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">@startuml</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">left</span> to <span class="kw">right</span> direction</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">skinparam</span> packageStyle rectangle</span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">actor</span> <span class="va">customer</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="kw">actor</span> <span class="va">clerk</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="kw">rectangle</span> <span class="va">checkout</span> {</span>
-<span id="cb16-7"><a href="#cb16-7"></a>  customer <span class="op">--</span> (checkout)</span>
-<span id="cb16-8"><a href="#cb16-8"></a>  (checkout) <span class="op">.&gt;</span> (payment) : <span class="do">include</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a>  (help) <span class="op">.&gt;</span> (checkout) : <span class="do">extends</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>  (checkout) <span class="op">--</span> clerk</span>
-<span id="cb16-11"><a href="#cb16-11"></a>}</span>
-<span id="cb16-12"><a href="#cb16-12"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">@startuml</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">left</span> to <span class="kw">right</span> direction</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="kw">skinparam</span> packageStyle rectangle</span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="kw">actor</span> <span class="va">customer</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="kw">actor</span> <span class="va">clerk</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="kw">rectangle</span> <span class="va">checkout</span> {</span>
+<span id="cb17-7"><a href="#cb17-7"></a>  customer <span class="op">--</span> (checkout)</span>
+<span id="cb17-8"><a href="#cb17-8"></a>  (checkout) <span class="op">.&gt;</span> (payment) : <span class="do">include</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a>  (help) <span class="op">.&gt;</span> (checkout) : <span class="do">extends</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a>  (checkout) <span class="op">--</span> clerk</span>
+<span id="cb17-11"><a href="#cb17-11"></a>}</span>
+<span id="cb17-12"><a href="#cb17-12"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/0398b4accc6512e51df27ffeb4428a219966b921.svg" alt="puml" /></p>
 </div>
@@ -617,38 +686,38 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - Component</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb17"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">@startuml</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="kw">package</span> <span class="va">&quot;Some Group&quot;</span> {</span>
-<span id="cb17-4"><a href="#cb17-4"></a>  HTTP <span class="op">-</span> [First Component]</span>
-<span id="cb17-5"><a href="#cb17-5"></a>  [Another Component]</span>
-<span id="cb17-6"><a href="#cb17-6"></a>}</span>
-<span id="cb17-7"><a href="#cb17-7"></a> </span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="kw">node</span> <span class="va">&quot;Other Groups&quot;</span> {</span>
-<span id="cb17-9"><a href="#cb17-9"></a>  FTP <span class="op">-</span> [Second Component]</span>
-<span id="cb17-10"><a href="#cb17-10"></a>  [First Component] <span class="op">--&gt;</span> FTP</span>
-<span id="cb17-11"><a href="#cb17-11"></a>} </span>
-<span id="cb17-12"><a href="#cb17-12"></a></span>
-<span id="cb17-13"><a href="#cb17-13"></a><span class="kw">cloud</span> {</span>
-<span id="cb17-14"><a href="#cb17-14"></a>  [Example 1]</span>
-<span id="cb17-15"><a href="#cb17-15"></a>}</span>
-<span id="cb17-16"><a href="#cb17-16"></a></span>
-<span id="cb17-17"><a href="#cb17-17"></a></span>
-<span id="cb17-18"><a href="#cb17-18"></a><span class="kw">database</span> <span class="va">&quot;MySql&quot;</span> {</span>
-<span id="cb17-19"><a href="#cb17-19"></a>  <span class="kw">folder</span> <span class="va">&quot;This is my folder&quot;</span> {</span>
-<span id="cb17-20"><a href="#cb17-20"></a>    [Folder 3]</span>
-<span id="cb17-21"><a href="#cb17-21"></a>  }</span>
-<span id="cb17-22"><a href="#cb17-22"></a>  <span class="kw">frame</span> <span class="va">&quot;Foo&quot;</span> {</span>
-<span id="cb17-23"><a href="#cb17-23"></a>    [Frame 4]</span>
-<span id="cb17-24"><a href="#cb17-24"></a>  }</span>
-<span id="cb17-25"><a href="#cb17-25"></a>}</span>
-<span id="cb17-26"><a href="#cb17-26"></a></span>
-<span id="cb17-27"><a href="#cb17-27"></a></span>
-<span id="cb17-28"><a href="#cb17-28"></a>[Another Component] <span class="op">--&gt;</span> [Example 1]</span>
-<span id="cb17-29"><a href="#cb17-29"></a>[Example 1] <span class="op">--&gt;</span> [Folder 3]</span>
-<span id="cb17-30"><a href="#cb17-30"></a>[Folder 3] <span class="op">--&gt;</span> [Frame 4]</span>
-<span id="cb17-31"><a href="#cb17-31"></a></span>
-<span id="cb17-32"><a href="#cb17-32"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">@startuml</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="kw">package</span> <span class="va">&quot;Some Group&quot;</span> {</span>
+<span id="cb18-4"><a href="#cb18-4"></a>  HTTP <span class="op">-</span> [First Component]</span>
+<span id="cb18-5"><a href="#cb18-5"></a>  [Another Component]</span>
+<span id="cb18-6"><a href="#cb18-6"></a>}</span>
+<span id="cb18-7"><a href="#cb18-7"></a> </span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="kw">node</span> <span class="va">&quot;Other Groups&quot;</span> {</span>
+<span id="cb18-9"><a href="#cb18-9"></a>  FTP <span class="op">-</span> [Second Component]</span>
+<span id="cb18-10"><a href="#cb18-10"></a>  [First Component] <span class="op">--&gt;</span> FTP</span>
+<span id="cb18-11"><a href="#cb18-11"></a>} </span>
+<span id="cb18-12"><a href="#cb18-12"></a></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="kw">cloud</span> {</span>
+<span id="cb18-14"><a href="#cb18-14"></a>  [Example 1]</span>
+<span id="cb18-15"><a href="#cb18-15"></a>}</span>
+<span id="cb18-16"><a href="#cb18-16"></a></span>
+<span id="cb18-17"><a href="#cb18-17"></a></span>
+<span id="cb18-18"><a href="#cb18-18"></a><span class="kw">database</span> <span class="va">&quot;MySql&quot;</span> {</span>
+<span id="cb18-19"><a href="#cb18-19"></a>  <span class="kw">folder</span> <span class="va">&quot;This is my folder&quot;</span> {</span>
+<span id="cb18-20"><a href="#cb18-20"></a>    [Folder 3]</span>
+<span id="cb18-21"><a href="#cb18-21"></a>  }</span>
+<span id="cb18-22"><a href="#cb18-22"></a>  <span class="kw">frame</span> <span class="va">&quot;Foo&quot;</span> {</span>
+<span id="cb18-23"><a href="#cb18-23"></a>    [Frame 4]</span>
+<span id="cb18-24"><a href="#cb18-24"></a>  }</span>
+<span id="cb18-25"><a href="#cb18-25"></a>}</span>
+<span id="cb18-26"><a href="#cb18-26"></a></span>
+<span id="cb18-27"><a href="#cb18-27"></a></span>
+<span id="cb18-28"><a href="#cb18-28"></a>[Another Component] <span class="op">--&gt;</span> [Example 1]</span>
+<span id="cb18-29"><a href="#cb18-29"></a>[Example 1] <span class="op">--&gt;</span> [Folder 3]</span>
+<span id="cb18-30"><a href="#cb18-30"></a>[Folder 3] <span class="op">--&gt;</span> [Frame 4]</span>
+<span id="cb18-31"><a href="#cb18-31"></a></span>
+<span id="cb18-32"><a href="#cb18-32"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/1d0e17dea13ac8c2296e3a279e1bd37a423fefd8.svg" alt="puml" /></p>
 </div>
@@ -670,41 +739,35 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <p>Une extension des diagrammes de classes permettant de faire de la schématisation DB.</p>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb18"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">@startuml</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="co">&#39; hide the spot</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="kw">hide</span> circle</span>
-<span id="cb18-5"><a href="#cb18-5"></a></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="co">&#39; avoid problems with angled crows feet</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="kw">skinparam</span> linetype ortho</span>
-<span id="cb18-8"><a href="#cb18-8"></a></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="kw">entity</span> <span class="va">&quot;Entity01&quot;</span> <span class="kw">as</span> <span class="va">e01</span> {</span>
-<span id="cb18-10"><a href="#cb18-10"></a>  *e1_id : <span class="do">number</span> <span class="do">&lt;&lt;generated&gt;&gt;</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a>  <span class="op">--</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a>  *name : <span class="do">text</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a>  description : <span class="do">text</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a>}</span>
-<span id="cb18-15"><a href="#cb18-15"></a></span>
-<span id="cb18-16"><a href="#cb18-16"></a><span class="kw">entity</span> <span class="va">&quot;Entity02&quot;</span> <span class="kw">as</span> <span class="va">e02</span> {</span>
-<span id="cb18-17"><a href="#cb18-17"></a>  *e2_id : <span class="do">number</span> <span class="do">&lt;&lt;generated&gt;&gt;</span></span>
-<span id="cb18-18"><a href="#cb18-18"></a>  <span class="op">--</span></span>
-<span id="cb18-19"><a href="#cb18-19"></a>  *e1_id : <span class="do">number</span> <span class="do">&lt;&lt;FK&gt;&gt;</span></span>
-<span id="cb18-20"><a href="#cb18-20"></a>  other_details : <span class="do">text</span></span>
-<span id="cb18-21"><a href="#cb18-21"></a>}</span>
-<span id="cb18-22"><a href="#cb18-22"></a></span>
-<span id="cb18-23"><a href="#cb18-23"></a><span class="kw">entity</span> <span class="va">&quot;Entity03&quot;</span> <span class="kw">as</span> <span class="va">e03</span> {</span>
-<span id="cb18-24"><a href="#cb18-24"></a>  *e3_id : <span class="do">number</span> <span class="do">&lt;&lt;generated&gt;&gt;</span></span>
-<span id="cb18-25"><a href="#cb18-25"></a>  <span class="op">--</span></span>
-<span id="cb18-26"><a href="#cb18-26"></a>  e1_id : <span class="do">number</span> <span class="do">&lt;&lt;FK&gt;&gt;</span></span>
-<span id="cb18-27"><a href="#cb18-27"></a>  other_details : <span class="do">text</span></span>
-<span id="cb18-28"><a href="#cb18-28"></a>}</span>
-<span id="cb18-29"><a href="#cb18-29"></a></span>
-<span id="cb18-30"><a href="#cb18-30"></a>e01 ||<span class="op">..o{</span> e02</span>
-<span id="cb18-31"><a href="#cb18-31"></a>e01 |<span class="op">o..o{</span> e03</span>
-<span id="cb18-32"><a href="#cb18-32"></a></span>
-<span id="cb18-33"><a href="#cb18-33"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">@startuml</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="kw">skinparam</span> linetype ortho</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="kw">entity</span> <span class="va">&quot;Class&quot;</span> <span class="kw">as</span> <span class="va">e_class</span> {</span>
+<span id="cb19-5"><a href="#cb19-5"></a>  *class_id : <span class="do">number</span> <span class="do">&lt;&lt;generated&gt;&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="op">--</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>  *name : <span class="do">text</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>}</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="kw">entity</span> <span class="va">&quot;Student&quot;</span> <span class="kw">as</span> <span class="va">e_student</span> {</span>
+<span id="cb19-11"><a href="#cb19-11"></a>  *student_id : <span class="do">number</span> <span class="do">&lt;&lt;generated&gt;&gt;</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>  <span class="op">--</span></span>
+<span id="cb19-13"><a href="#cb19-13"></a>  class_id : <span class="do">number</span> <span class="do">&lt;&lt;FK&gt;&gt;</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a>  phone_number : <span class="do">text</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a>}</span>
+<span id="cb19-16"><a href="#cb19-16"></a></span>
+<span id="cb19-17"><a href="#cb19-17"></a><span class="kw">entity</span> <span class="va">&quot;Teacher&quot;</span> <span class="kw">as</span> <span class="va">e_teacher</span> {</span>
+<span id="cb19-18"><a href="#cb19-18"></a>  *teacher_id : <span class="do">number</span> <span class="do">&lt;&lt;generated&gt;&gt;</span></span>
+<span id="cb19-19"><a href="#cb19-19"></a>  <span class="op">--</span></span>
+<span id="cb19-20"><a href="#cb19-20"></a>  *class_id : <span class="do">number</span> <span class="do">&lt;&lt;FK&gt;&gt;</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a>  other_details : <span class="do">text</span></span>
+<span id="cb19-22"><a href="#cb19-22"></a>}</span>
+<span id="cb19-23"><a href="#cb19-23"></a></span>
+<span id="cb19-24"><a href="#cb19-24"></a>e_class }|<span class="op">..o{</span> e_student: <span class="do">includes</span> <span class="do">/</span> <span class="do">goes</span> <span class="do">to</span></span>
+<span id="cb19-25"><a href="#cb19-25"></a>e_class ||<span class="op">..o{</span> e_teacher: <span class="do">is</span> <span class="do">taught</span> <span class="do">/</span> <span class="do">teaches</span></span>
+<span id="cb19-26"><a href="#cb19-26"></a>e_student }|<span class="op">..</span>|{ e_teacher: <span class="do">has</span></span>
+<span id="cb19-27"><a href="#cb19-27"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
-<p><img data-src="./media/6aed8eeba62b776757bd549391403649d4ede2eb.svg" alt="puml" /></p>
+<p><img data-src="./media/dad2619f3d2b229f41d144ca283eed16692169b0.svg" alt="puml" /></p>
 </div>
 </div>
 <ul>
@@ -714,23 +777,23 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - Mind Map</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb19"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb19-1"><a href="#cb19-1"></a>@startmindmap</span>
-<span id="cb19-2"><a href="#cb19-2"></a>+ OS</span>
-<span id="cb19-3"><a href="#cb19-3"></a>++ Ubuntu</span>
-<span id="cb19-4"><a href="#cb19-4"></a>+++ Linux Mint</span>
-<span id="cb19-5"><a href="#cb19-5"></a>+++ Kubuntu</span>
-<span id="cb19-6"><a href="#cb19-6"></a>+++ Lubuntu</span>
-<span id="cb19-7"><a href="#cb19-7"></a>+++ KDE Neon</span>
-<span id="cb19-8"><a href="#cb19-8"></a>++ LMDE</span>
-<span id="cb19-9"><a href="#cb19-9"></a>++ SolydXK</span>
-<span id="cb19-10"><a href="#cb19-10"></a>++ SteamOS</span>
-<span id="cb19-11"><a href="#cb19-11"></a>++ Raspbian</span>
-<span id="cb19-12"><a href="#cb19-12"></a><span class="op">--</span> Windows 95</span>
-<span id="cb19-13"><a href="#cb19-13"></a><span class="op">--</span> Windows 98</span>
-<span id="cb19-14"><a href="#cb19-14"></a><span class="op">--</span> Windows NT</span>
-<span id="cb19-15"><a href="#cb19-15"></a><span class="op">---</span> Windows 8</span>
-<span id="cb19-16"><a href="#cb19-16"></a><span class="op">---</span> Windows 10</span>
-<span id="cb19-17"><a href="#cb19-17"></a>@endmindmap</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb20-1"><a href="#cb20-1"></a>@startmindmap</span>
+<span id="cb20-2"><a href="#cb20-2"></a>+ OS</span>
+<span id="cb20-3"><a href="#cb20-3"></a>++ Ubuntu</span>
+<span id="cb20-4"><a href="#cb20-4"></a>+++ Linux Mint</span>
+<span id="cb20-5"><a href="#cb20-5"></a>+++ Kubuntu</span>
+<span id="cb20-6"><a href="#cb20-6"></a>+++ Lubuntu</span>
+<span id="cb20-7"><a href="#cb20-7"></a>+++ KDE Neon</span>
+<span id="cb20-8"><a href="#cb20-8"></a>++ LMDE</span>
+<span id="cb20-9"><a href="#cb20-9"></a>++ SolydXK</span>
+<span id="cb20-10"><a href="#cb20-10"></a>++ SteamOS</span>
+<span id="cb20-11"><a href="#cb20-11"></a>++ Raspbian</span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="op">--</span> Windows 95</span>
+<span id="cb20-13"><a href="#cb20-13"></a><span class="op">--</span> Windows 98</span>
+<span id="cb20-14"><a href="#cb20-14"></a><span class="op">--</span> Windows NT</span>
+<span id="cb20-15"><a href="#cb20-15"></a><span class="op">---</span> Windows 8</span>
+<span id="cb20-16"><a href="#cb20-16"></a><span class="op">---</span> Windows 10</span>
+<span id="cb20-17"><a href="#cb20-17"></a>@endmindmap</span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/0edb493f6b40d471ba7fada799eef40ea2c81ce8.svg" alt="puml" /></p>
 </div>
@@ -743,14 +806,14 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <p>Pour Cédric et autre gestionnaires:</p>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb20"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb20-1"><a href="#cb20-1"></a>@startgantt</span>
-<span id="cb20-2"><a href="#cb20-2"></a>[Prototype design] lasts 13 days and <span class="kw">is</span> colored in <span class="va">Lavender</span>/<span class="va">LightBlue</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a>[Test prototype] lasts 9 days and <span class="kw">is</span> colored in <span class="va">Coral</span>/<span class="va">Green</span> and starts 3 days after [Prototype design]&#39;s <span class="cf">end</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>[Write tests] lasts 5 days and ends at [Prototype design]&#39;s <span class="cf">end</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>[Hire tests writers] lasts 6 days and ends at [Write tests]&#39;s <span class="cf">start</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>[Init and write tests report] <span class="kw">is</span> colored in <span class="va">Coral</span>/<span class="va">Green</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>[Init and write tests report] starts 1 day before [Test prototype]&#39;s <span class="cf">start</span> and ends at [Test prototype]&#39;s <span class="cf">end</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>@endgantt</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb21-1"><a href="#cb21-1"></a>@startgantt</span>
+<span id="cb21-2"><a href="#cb21-2"></a>[Prototype design] lasts 13 days and <span class="kw">is</span> colored in <span class="va">Lavender</span>/<span class="va">LightBlue</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>[Test prototype] lasts 9 days and <span class="kw">is</span> colored in <span class="va">Coral</span>/<span class="va">Green</span> and starts 3 days after [Prototype design]&#39;s <span class="cf">end</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>[Write tests] lasts 5 days and ends at [Prototype design]&#39;s <span class="cf">end</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>[Hire tests writers] lasts 6 days and ends at [Write tests]&#39;s <span class="cf">start</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>[Init and write tests report] <span class="kw">is</span> colored in <span class="va">Coral</span>/<span class="va">Green</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>[Init and write tests report] starts 1 day before [Test prototype]&#39;s <span class="cf">start</span> and ends at [Test prototype]&#39;s <span class="cf">end</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>@endgantt</span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/8801d3e4ff0341f9eb3594250b864a8773828a6a.svg" alt="puml" /></p>
 </div>
@@ -762,24 +825,24 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Types de diagrammes - WBS</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb21"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb21-1"><a href="#cb21-1"></a>@startwbs</span>
-<span id="cb21-2"><a href="#cb21-2"></a>+ New Job</span>
-<span id="cb21-3"><a href="#cb21-3"></a>++ Decide <span class="kw">on</span> Job Requirements</span>
-<span id="cb21-4"><a href="#cb21-4"></a>+++ Identity gaps</span>
-<span id="cb21-5"><a href="#cb21-5"></a>+++ Review JDs</span>
-<span id="cb21-6"><a href="#cb21-6"></a>++++ Sign<span class="op">-</span>Up for courses</span>
-<span id="cb21-7"><a href="#cb21-7"></a>++++ Volunteer</span>
-<span id="cb21-8"><a href="#cb21-8"></a>++++ Reading</span>
-<span id="cb21-9"><a href="#cb21-9"></a>+<span class="op">+-</span> Checklist</span>
-<span id="cb21-10"><a href="#cb21-10"></a>++<span class="op">+-</span> Responsibilities</span>
-<span id="cb21-11"><a href="#cb21-11"></a>++<span class="op">+-</span> Location</span>
-<span id="cb21-12"><a href="#cb21-12"></a>++ CV Upload Done</span>
-<span id="cb21-13"><a href="#cb21-13"></a>+++ CV Updated</span>
-<span id="cb21-14"><a href="#cb21-14"></a>++++ Spelling &amp; Grammar</span>
-<span id="cb21-15"><a href="#cb21-15"></a>++++ Check dates</span>
-<span id="cb21-16"><a href="#cb21-16"></a><span class="op">----</span> Skills</span>
-<span id="cb21-17"><a href="#cb21-17"></a>+++ Recruitment sites chosen</span>
-<span id="cb21-18"><a href="#cb21-18"></a>@endwbs</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb22-1"><a href="#cb22-1"></a>@startwbs</span>
+<span id="cb22-2"><a href="#cb22-2"></a>+ New Job</span>
+<span id="cb22-3"><a href="#cb22-3"></a>++ Decide <span class="kw">on</span> Job Requirements</span>
+<span id="cb22-4"><a href="#cb22-4"></a>+++ Identity gaps</span>
+<span id="cb22-5"><a href="#cb22-5"></a>+++ Review JDs</span>
+<span id="cb22-6"><a href="#cb22-6"></a>++++ Sign<span class="op">-</span>Up for courses</span>
+<span id="cb22-7"><a href="#cb22-7"></a>++++ Volunteer</span>
+<span id="cb22-8"><a href="#cb22-8"></a>++++ Reading</span>
+<span id="cb22-9"><a href="#cb22-9"></a>+<span class="op">+-</span> Checklist</span>
+<span id="cb22-10"><a href="#cb22-10"></a>++<span class="op">+-</span> Responsibilities</span>
+<span id="cb22-11"><a href="#cb22-11"></a>++<span class="op">+-</span> Location</span>
+<span id="cb22-12"><a href="#cb22-12"></a>++ CV Upload Done</span>
+<span id="cb22-13"><a href="#cb22-13"></a>+++ CV Updated</span>
+<span id="cb22-14"><a href="#cb22-14"></a>++++ Spelling &amp; Grammar</span>
+<span id="cb22-15"><a href="#cb22-15"></a>++++ Check dates</span>
+<span id="cb22-16"><a href="#cb22-16"></a><span class="op">----</span> Skills</span>
+<span id="cb22-17"><a href="#cb22-17"></a>+++ Recruitment sites chosen</span>
+<span id="cb22-18"><a href="#cb22-18"></a>@endwbs</span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/109325e2efae4912859738c89f36e824fedda904.svg" alt="puml" /></p>
 </div>
@@ -792,20 +855,20 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <p>Via <em>Salt</em>, on peut même faire du design d’interfaces graphique!</p>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb22"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">@startsalt</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>{+</span>
-<span id="cb22-3"><a href="#cb22-3"></a>{* File | Edit | Source | Refactor </span>
-<span id="cb22-4"><a href="#cb22-4"></a> Refactor | New | Open File | <span class="op">-</span> | Close | Close All }</span>
-<span id="cb22-5"><a href="#cb22-5"></a>{/ General | Fullscreen | Behavior | Saving }</span>
-<span id="cb22-6"><a href="#cb22-6"></a>{</span>
-<span id="cb22-7"><a href="#cb22-7"></a>    { Open image in: <span class="do">|</span> <span class="do">^Smart</span> <span class="do">Mode^</span> <span class="do">}</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a>    [X] Smooth images when zoomed</span>
-<span id="cb22-9"><a href="#cb22-9"></a>    [X] Confirm image deletion</span>
-<span id="cb22-10"><a href="#cb22-10"></a>    [ ] Show hidden images </span>
-<span id="cb22-11"><a href="#cb22-11"></a>}</span>
-<span id="cb22-12"><a href="#cb22-12"></a>[Close]</span>
-<span id="cb22-13"><a href="#cb22-13"></a>}</span>
-<span id="cb22-14"><a href="#cb22-14"></a><span class="kw">@endsalt</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">@startsalt</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>{+</span>
+<span id="cb23-3"><a href="#cb23-3"></a>{* File | Edit | Source | Refactor </span>
+<span id="cb23-4"><a href="#cb23-4"></a> Refactor | New | Open File | <span class="op">-</span> | Close | Close All }</span>
+<span id="cb23-5"><a href="#cb23-5"></a>{/ General | Fullscreen | Behavior | Saving }</span>
+<span id="cb23-6"><a href="#cb23-6"></a>{</span>
+<span id="cb23-7"><a href="#cb23-7"></a>    { Open image in: <span class="do">|</span> <span class="do">^Smart</span> <span class="do">Mode^</span> <span class="do">}</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a>    [X] Smooth images when zoomed</span>
+<span id="cb23-9"><a href="#cb23-9"></a>    [X] Confirm image deletion</span>
+<span id="cb23-10"><a href="#cb23-10"></a>    [ ] Show hidden images </span>
+<span id="cb23-11"><a href="#cb23-11"></a>}</span>
+<span id="cb23-12"><a href="#cb23-12"></a>[Close]</span>
+<span id="cb23-13"><a href="#cb23-13"></a>}</span>
+<span id="cb23-14"><a href="#cb23-14"></a><span class="kw">@endsalt</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/63fe3bc487f5f6f89bfc0361a667198c03c480a3.svg" alt="puml" /></p>
 </div>
@@ -826,16 +889,16 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <p>Puisque PlantUML dépend déjà de <a href="https://www.graphviz.org/">Graphviz</a>, un support du language dot est offert.</p>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb23"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">@startdot</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>digraph foo {</span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="kw">node</span> [<span class="va">style</span>=<span class="va">rounded</span>]</span>
-<span id="cb23-4"><a href="#cb23-4"></a>  node1 [shape=<span class="kw">box</span>]</span>
-<span id="cb23-5"><a href="#cb23-5"></a>  node2 [fillcolor=yellow, style=<span class="st">&quot;rounded,filled&quot;</span>, shape=diamond]</span>
-<span id="cb23-6"><a href="#cb23-6"></a>  node3 [shape=record, label=<span class="st">&quot;{ a | b | c }&quot;</span>]</span>
-<span id="cb23-7"><a href="#cb23-7"></a></span>
-<span id="cb23-8"><a href="#cb23-8"></a>  node1 <span class="op">-&gt;</span> node2 <span class="op">-&gt;</span> node3</span>
-<span id="cb23-9"><a href="#cb23-9"></a>}</span>
-<span id="cb23-10"><a href="#cb23-10"></a><span class="kw">@enddot</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">@startdot</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>digraph foo {</span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="kw">node</span> [<span class="va">style</span>=<span class="va">rounded</span>]</span>
+<span id="cb24-4"><a href="#cb24-4"></a>  node1 [shape=<span class="kw">box</span>]</span>
+<span id="cb24-5"><a href="#cb24-5"></a>  node2 [fillcolor=yellow, style=<span class="st">&quot;rounded,filled&quot;</span>, shape=diamond]</span>
+<span id="cb24-6"><a href="#cb24-6"></a>  node3 [shape=record, label=<span class="st">&quot;{ a | b | c }&quot;</span>]</span>
+<span id="cb24-7"><a href="#cb24-7"></a></span>
+<span id="cb24-8"><a href="#cb24-8"></a>  node1 <span class="op">-&gt;</span> node2 <span class="op">-&gt;</span> node3</span>
+<span id="cb24-9"><a href="#cb24-9"></a>}</span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="kw">@enddot</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/e22897c008b366beb7629a29ab7a16bb740f8f83.svg" alt="puml" /></p>
 </div>
@@ -848,17 +911,17 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <p>Le diagram parfait pour les artistes ASCII. Via outil <a href="http://ditaa.sourceforge.net/"><code>ditaa</code></a> installable et utilisable séparément.</p>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb24" data-output="png"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb24-1"><a href="#cb24-1"></a>@startditaa</span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="op">+--------+</span>   <span class="op">+-------+</span>    <span class="op">+-------+</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a>|        <span class="op">+---+</span> ditaa <span class="op">+--&gt;</span> |       |</span>
-<span id="cb24-4"><a href="#cb24-4"></a>|  Text  |   <span class="op">+-------+</span>    |diagram|</span>
-<span id="cb24-5"><a href="#cb24-5"></a>|Document|   |!magic!|    |       |</span>
-<span id="cb24-6"><a href="#cb24-6"></a>|     {d}|   |       |    |       |</span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="op">+---+----+</span>   <span class="op">+-------+</span>    <span class="op">+-------+</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>    <span class="va">:                         ^</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a><span class="va">    |       Lots of work      |</span></span>
-<span id="cb24-10"><a href="#cb24-10"></a><span class="va">    +-------------------------+</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a><span class="va">@endditaa</span></span></code></pre></div>
+<div class="sourceCode" id="cb25" data-output="png"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb25-1"><a href="#cb25-1"></a>@startditaa</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="op">+--------+</span>   <span class="op">+-------+</span>    <span class="op">+-------+</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>|        <span class="op">+---+</span> ditaa <span class="op">+--&gt;</span> |       |</span>
+<span id="cb25-4"><a href="#cb25-4"></a>|  Text  |   <span class="op">+-------+</span>    |diagram|</span>
+<span id="cb25-5"><a href="#cb25-5"></a>|Document|   |!magic!|    |       |</span>
+<span id="cb25-6"><a href="#cb25-6"></a>|     {d}|   |       |    |       |</span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="op">+---+----+</span>   <span class="op">+-------+</span>    <span class="op">+-------+</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>    <span class="va">:                         ^</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="va">    |       Lots of work      |</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="va">    +-------------------------+</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="va">@endditaa</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/1aec416acc54b53b71d438832f39257f7acc46c8.png" alt="puml" /></p>
 </div>
@@ -872,22 +935,22 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <ul>
 <li class="fragment"><p>Inclusion par path relatif:</p>
 <p><code>./my-shared.iuml</code>:</p>
-<div class="sourceCode" id="cb25" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">class</span> <span class="va">MyClass1</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="co">&#39;..</span></span></code></pre></div>
+<div class="sourceCode" id="cb26" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">class</span> <span class="va">MyClass1</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="co">&#39;..</span></span></code></pre></div>
 <p><code>./my-diagram.puml</code>:</p>
-<div class="sourceCode" id="cb26" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb26-1"><a href="#cb26-1"></a>!%include <span class="op">.</span>/my<span class="op">-</span>shared<span class="op">.</span>iuml</span></code></pre></div></li>
+<div class="sourceCode" id="cb27" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb27-1"><a href="#cb27-1"></a>!%include <span class="op">.</span>/my<span class="op">-</span>shared<span class="op">.</span>iuml</span></code></pre></div></li>
 <li class="fragment"><p>Configuration par défaut: <code>./my-config.iuml</code>:</p>
-<div class="sourceCode" id="cb27" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">skinparam</span> backgroundColor <span class="va">Silver</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="co">&#39;..</span></span></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a>$ <span class="ex">plantuml</span> -I<span class="st">&quot;./my-config.iuml&quot;</span> <span class="co"># ..</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="co"># ..</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb28" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">skinparam</span> backgroundColor <span class="va">Silver</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="co">&#39;..</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a>$ <span class="ex">plantuml</span> -I<span class="st">&quot;./my-config.iuml&quot;</span> <span class="co"># ..</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="co"># ..</span></span></code></pre></div></li>
 </ul>
 </section><section id="usage-avancé---libraries-globales" class="slide level2">
 <h2>Usage avancé - Libraries globales</h2>
 <ul>
 <li class="fragment"><p>Include search path:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a>$ <span class="ex">java</span> -Dplantuml.include.path=<span class="st">&quot;/path/to/my/includes/dir&quot;</span> -jar plantuml.jar <span class="co"># ..</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="co"># ..</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a>$ <span class="ex">java</span> -Dplantuml.include.path=<span class="st">&quot;/path/to/my/includes/dir&quot;</span> -jar plantuml.jar <span class="co"># ..</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="co"># ..</span></span></code></pre></div></li>
 <li class="fragment"><p>Permet d’inclure certaines libraries réutilisable à travers les projets.</p>
 <p>En particulier pratique pour les styles mais sans y être limité.</p></li>
 <li class="fragment"><p>Par example:</p>
@@ -902,18 +965,18 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 @endmindmap
 ```
 -->
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a>$ <span class="ex">tree</span> /path/to/my/includes/dir</span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="ex">/path/to/my/includes/dir</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a>├── <span class="ex">my-cross-project.iuml</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a>└── <span class="ex">my-other-cross-project.iuml</span></span>
-<span id="cb30-5"><a href="#cb30-5"></a></span>
-<span id="cb30-6"><a href="#cb30-6"></a><span class="ex">0</span> directories, 1 file</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a>$ <span class="ex">tree</span> /path/to/my/includes/dir</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="ex">/path/to/my/includes/dir</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>├── <span class="ex">my-cross-project.iuml</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>└── <span class="ex">my-other-cross-project.iuml</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="ex">0</span> directories, 1 file</span></code></pre></div>
 </div><div class="column">
-<div class="sourceCode" id="cb31" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">@startuml</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>!%include my<span class="op">-</span>cross<span class="op">-</span>project<span class="op">.</span>iuml</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="co">&#39; Use my shared library.</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a>my_fn(<span class="st">&quot;my-arg1&quot;</span>, 22, <span class="st">&quot;blablabla&quot;</span>)</span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb32" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">@startuml</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>!%include my<span class="op">-</span>cross<span class="op">-</span>project<span class="op">.</span>iuml</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="co">&#39; Use my shared library.</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>my_fn(<span class="st">&quot;my-arg1&quot;</span>, 22, <span class="st">&quot;blablabla&quot;</span>)</span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div>
 </div></li>
 </ul>
@@ -926,29 +989,29 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <div class="columns">
 <div class="column">
 <p><code>./my-parameterizable.iuml</code>:</p>
-<div class="sourceCode" id="cb32" data-code_block="true"><pre class="sourceCode plantuml stretch"><code class="sourceCode plantuml"><span id="cb32-1"><a href="#cb32-1"></a>!function $var_exists_or_default($varname, $default_value)</span>
-<span id="cb32-2"><a href="#cb32-2"></a>!<span class="cf">if</span> (%not(%variable_exists($varname)))</span>
-<span id="cb32-3"><a href="#cb32-3"></a>%set_variable_value($varname, $default_value)</span>
-<span id="cb32-4"><a href="#cb32-4"></a>!<span class="cf">endif</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a>!endfunction</span>
-<span id="cb32-6"><a href="#cb32-6"></a></span>
-<span id="cb32-7"><a href="#cb32-7"></a>$var_exists_or_default(<span class="st">&quot;$my_param_a&quot;</span>, 5)</span>
-<span id="cb32-8"><a href="#cb32-8"></a>$var_exists_or_default(<span class="st">&quot;$my_param_b&quot;</span>, 10)</span>
-<span id="cb32-9"><a href="#cb32-9"></a></span>
-<span id="cb32-10"><a href="#cb32-10"></a>robust <span class="st">&quot;MyEntity&quot;</span> <span class="kw">as</span> myEntity</span>
-<span id="cb32-11"><a href="#cb32-11"></a></span>
-<span id="cb32-12"><a href="#cb32-12"></a>@$my_param_a</span>
-<span id="cb32-13"><a href="#cb32-13"></a>myEntity <span class="kw">is</span> StateA</span>
-<span id="cb32-14"><a href="#cb32-14"></a>@$my_param_b</span>
-<span id="cb32-15"><a href="#cb32-15"></a>myEntity <span class="kw">is</span> StateB</span>
-<span id="cb32-16"><a href="#cb32-16"></a>!$my_computed_c = $my_param_a + $my_param_b</span>
-<span id="cb32-17"><a href="#cb32-17"></a>@$my_computed_c</span>
-<span id="cb32-18"><a href="#cb32-18"></a>myEntity <span class="kw">is</span> StateC</span></code></pre></div>
+<div class="sourceCode" id="cb33" data-code_block="true"><pre class="sourceCode plantuml stretch"><code class="sourceCode plantuml"><span id="cb33-1"><a href="#cb33-1"></a>!function $var_exists_or_default($varname, $default_value)</span>
+<span id="cb33-2"><a href="#cb33-2"></a>!<span class="cf">if</span> (%not(%variable_exists($varname)))</span>
+<span id="cb33-3"><a href="#cb33-3"></a>%set_variable_value($varname, $default_value)</span>
+<span id="cb33-4"><a href="#cb33-4"></a>!<span class="cf">endif</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>!endfunction</span>
+<span id="cb33-6"><a href="#cb33-6"></a></span>
+<span id="cb33-7"><a href="#cb33-7"></a>$var_exists_or_default(<span class="st">&quot;$my_param_a&quot;</span>, 5)</span>
+<span id="cb33-8"><a href="#cb33-8"></a>$var_exists_or_default(<span class="st">&quot;$my_param_b&quot;</span>, 10)</span>
+<span id="cb33-9"><a href="#cb33-9"></a></span>
+<span id="cb33-10"><a href="#cb33-10"></a>robust <span class="st">&quot;MyEntity&quot;</span> <span class="kw">as</span> myEntity</span>
+<span id="cb33-11"><a href="#cb33-11"></a></span>
+<span id="cb33-12"><a href="#cb33-12"></a>@$my_param_a</span>
+<span id="cb33-13"><a href="#cb33-13"></a>myEntity <span class="kw">is</span> StateA</span>
+<span id="cb33-14"><a href="#cb33-14"></a>@$my_param_b</span>
+<span id="cb33-15"><a href="#cb33-15"></a>myEntity <span class="kw">is</span> StateB</span>
+<span id="cb33-16"><a href="#cb33-16"></a>!$my_computed_c = $my_param_a + $my_param_b</span>
+<span id="cb33-17"><a href="#cb33-17"></a>@$my_computed_c</span>
+<span id="cb33-18"><a href="#cb33-18"></a>myEntity <span class="kw">is</span> StateC</span></code></pre></div>
 </div><div class="column">
 <ul>
 <li class="fragment"><p>Lorsque paramétré par <code>./my-concrete-diagram.puml</code></p>
-<div class="sourceCode" id="cb33" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb33-1"><a href="#cb33-1"></a>!$my_param_a = 20</span>
-<span id="cb33-2"><a href="#cb33-2"></a>!include <span class="op">.</span>/my<span class="op">-</span>parameterizable<span class="op">.</span>iuml</span></code></pre></div>
+<div class="sourceCode" id="cb34" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb34-1"><a href="#cb34-1"></a>!$my_param_a = 20</span>
+<span id="cb34-2"><a href="#cb34-2"></a>!include <span class="op">.</span>/my<span class="op">-</span>parameterizable<span class="op">.</span>iuml</span></code></pre></div>
 <p>resultat page suivante.</p></li>
 </ul>
 </div>
@@ -973,26 +1036,26 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <li class="fragment"><p>Il est en effet possible de répéter un bout de diagramme plusieurs fois via une fonction récursive:</p>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb34" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">@startuml</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>!function $my_recursive_fn($rec_it, $n_times)</span>
-<span id="cb34-3"><a href="#cb34-3"></a>!<span class="cf">if</span> ($rec_it &lt; $n_times)</span>
-<span id="cb34-4"><a href="#cb34-4"></a></span>
-<span id="cb34-5"><a href="#cb34-5"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a></span>
-<span id="cb34-7"><a href="#cb34-7"></a><span class="co">&#39;Recurse</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a>$my_recursive_fn($rec_it + 1, $n_times)</span>
-<span id="cb34-9"><a href="#cb34-9"></a>!<span class="cf">endif</span></span>
-<span id="cb34-10"><a href="#cb34-10"></a>!endfunction</span>
-<span id="cb34-11"><a href="#cb34-11"></a></span>
-<span id="cb34-12"><a href="#cb34-12"></a><span class="co">&#39; Will repeat **Pattern** trice.</span></span>
-<span id="cb34-13"><a href="#cb34-13"></a>$my_recursive_fn(0, 3)</span>
-<span id="cb34-14"><a href="#cb34-14"></a><span class="kw">@enduml</span></span></code></pre></div>
-</div><div class="column">
 <div class="sourceCode" id="cb35" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">@startuml</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="kw">@enduml</span></span></code></pre></div>
+<span id="cb35-2"><a href="#cb35-2"></a>!function $my_recursive_fn($rec_it, $n_times)</span>
+<span id="cb35-3"><a href="#cb35-3"></a>!<span class="cf">if</span> ($rec_it &lt; $n_times)</span>
+<span id="cb35-4"><a href="#cb35-4"></a></span>
+<span id="cb35-5"><a href="#cb35-5"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a></span>
+<span id="cb35-7"><a href="#cb35-7"></a><span class="co">&#39;Recurse</span></span>
+<span id="cb35-8"><a href="#cb35-8"></a>$my_recursive_fn($rec_it + 1, $n_times)</span>
+<span id="cb35-9"><a href="#cb35-9"></a>!<span class="cf">endif</span></span>
+<span id="cb35-10"><a href="#cb35-10"></a>!endfunction</span>
+<span id="cb35-11"><a href="#cb35-11"></a></span>
+<span id="cb35-12"><a href="#cb35-12"></a><span class="co">&#39; Will repeat **Pattern** trice.</span></span>
+<span id="cb35-13"><a href="#cb35-13"></a>$my_recursive_fn(0, 3)</span>
+<span id="cb35-14"><a href="#cb35-14"></a><span class="kw">@enduml</span></span></code></pre></div>
+</div><div class="column">
+<div class="sourceCode" id="cb36" data-code_block="true"><pre class="sourceCode plantuml"><code class="sourceCode plantuml"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">@startuml</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co">&#39; **Pattern** to be repeated here.</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div>
 </div></li>
 </ul>
@@ -1001,23 +1064,23 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <p>Un example concret:</p>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb36"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">@startuml</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="kw">interface</span> <span class="va">MyInterface</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a></span>
-<span id="cb36-4"><a href="#cb36-4"></a>!function $my_recursive_fn($rec_it, $n_times)</span>
-<span id="cb36-5"><a href="#cb36-5"></a>!<span class="cf">if</span> ($rec_it &lt;= $n_times)</span>
-<span id="cb36-6"><a href="#cb36-6"></a></span>
-<span id="cb36-7"><a href="#cb36-7"></a><span class="co">&#39;**Pattern**</span></span>
-<span id="cb36-8"><a href="#cb36-8"></a>MyInterface <span class="op">&lt;|--</span> MyDescendant##$rec_it</span>
-<span id="cb36-9"><a href="#cb36-9"></a></span>
-<span id="cb36-10"><a href="#cb36-10"></a><span class="co">&#39;Recurse</span></span>
-<span id="cb36-11"><a href="#cb36-11"></a>$my_recursive_fn($rec_it + 1, $n_times)</span>
-<span id="cb36-12"><a href="#cb36-12"></a>!<span class="cf">endif</span></span>
-<span id="cb36-13"><a href="#cb36-13"></a>!endfunction</span>
-<span id="cb36-14"><a href="#cb36-14"></a></span>
-<span id="cb36-15"><a href="#cb36-15"></a><span class="co">&#39; Will repeat **Pattern** trice.</span></span>
-<span id="cb36-16"><a href="#cb36-16"></a>$my_recursive_fn(0, 3)</span>
-<span id="cb36-17"><a href="#cb36-17"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">@startuml</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="kw">interface</span> <span class="va">MyInterface</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a></span>
+<span id="cb37-4"><a href="#cb37-4"></a>!function $my_recursive_fn($rec_it, $n_times)</span>
+<span id="cb37-5"><a href="#cb37-5"></a>!<span class="cf">if</span> ($rec_it &lt;= $n_times)</span>
+<span id="cb37-6"><a href="#cb37-6"></a></span>
+<span id="cb37-7"><a href="#cb37-7"></a><span class="co">&#39;**Pattern**</span></span>
+<span id="cb37-8"><a href="#cb37-8"></a>MyInterface <span class="op">&lt;|--</span> MyDescendant##$rec_it</span>
+<span id="cb37-9"><a href="#cb37-9"></a></span>
+<span id="cb37-10"><a href="#cb37-10"></a><span class="co">&#39;Recurse</span></span>
+<span id="cb37-11"><a href="#cb37-11"></a>$my_recursive_fn($rec_it + 1, $n_times)</span>
+<span id="cb37-12"><a href="#cb37-12"></a>!<span class="cf">endif</span></span>
+<span id="cb37-13"><a href="#cb37-13"></a>!endfunction</span>
+<span id="cb37-14"><a href="#cb37-14"></a></span>
+<span id="cb37-15"><a href="#cb37-15"></a><span class="co">&#39; Will repeat **Pattern** trice.</span></span>
+<span id="cb37-16"><a href="#cb37-16"></a>$my_recursive_fn(0, 3)</span>
+<span id="cb37-17"><a href="#cb37-17"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/fcf03933efe1ae166eb648aa374de3deee8f1557.svg" alt="puml" /></p>
 </div>
@@ -1029,29 +1092,29 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Usage avancé - Aspect visuel</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb37"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">@startuml</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="kw">skinparam</span> backgroundColor <span class="va">LightYellow</span></span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="kw">skinparam</span> state {</span>
-<span id="cb37-4"><a href="#cb37-4"></a>  StartColor <span class="va">MediumBlue</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>  EndColor <span class="va">Red</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>  <span class="va">BackgroundColor</span> <span class="va">Peru</span></span>
-<span id="cb37-7"><a href="#cb37-7"></a>  <span class="va">BackgroundColor</span>&lt;&lt;Warning&gt;&gt; <span class="va">Olive</span></span>
-<span id="cb37-8"><a href="#cb37-8"></a>  BorderColor <span class="va">Gray</span></span>
-<span id="cb37-9"><a href="#cb37-9"></a>  FontName Impact</span>
-<span id="cb37-10"><a href="#cb37-10"></a>}</span>
-<span id="cb37-11"><a href="#cb37-11"></a></span>
-<span id="cb37-12"><a href="#cb37-12"></a>[*] <span class="op">--&gt;</span> NotShooting</span>
-<span id="cb37-13"><a href="#cb37-13"></a></span>
-<span id="cb37-14"><a href="#cb37-14"></a><span class="kw">state</span> <span class="va">&quot;Not Shooting State&quot;</span> <span class="kw">as</span> <span class="va">NotShooting</span> {</span>
-<span id="cb37-15"><a href="#cb37-15"></a>  <span class="kw">state</span> <span class="va">&quot;Idle mode&quot;</span> <span class="kw">as</span> <span class="va">Idle</span> &lt;&lt;<span class="va">Warning</span>&gt;&gt;</span>
-<span id="cb37-16"><a href="#cb37-16"></a>  <span class="kw">state</span> <span class="va">&quot;Configuring mode&quot;</span> <span class="kw">as</span> <span class="va">Configuring</span></span>
-<span id="cb37-17"><a href="#cb37-17"></a>  [*] <span class="op">--&gt;</span> Idle</span>
-<span id="cb37-18"><a href="#cb37-18"></a>  Idle <span class="op">--&gt;</span> Configuring : <span class="do">EvConfig</span></span>
-<span id="cb37-19"><a href="#cb37-19"></a>  Configuring <span class="op">--&gt;</span> Idle : <span class="do">EvConfig</span></span>
-<span id="cb37-20"><a href="#cb37-20"></a>}</span>
-<span id="cb37-21"><a href="#cb37-21"></a></span>
-<span id="cb37-22"><a href="#cb37-22"></a>NotShooting <span class="op">--&gt;</span> [*]</span>
-<span id="cb37-23"><a href="#cb37-23"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">@startuml</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="kw">skinparam</span> backgroundColor <span class="va">LightYellow</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="kw">skinparam</span> state {</span>
+<span id="cb38-4"><a href="#cb38-4"></a>  StartColor <span class="va">MediumBlue</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>  EndColor <span class="va">Red</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a>  <span class="va">BackgroundColor</span> <span class="va">Peru</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a>  <span class="va">BackgroundColor</span>&lt;&lt;Warning&gt;&gt; <span class="va">Olive</span></span>
+<span id="cb38-8"><a href="#cb38-8"></a>  BorderColor <span class="va">Gray</span></span>
+<span id="cb38-9"><a href="#cb38-9"></a>  FontName Impact</span>
+<span id="cb38-10"><a href="#cb38-10"></a>}</span>
+<span id="cb38-11"><a href="#cb38-11"></a></span>
+<span id="cb38-12"><a href="#cb38-12"></a>[*] <span class="op">--&gt;</span> NotShooting</span>
+<span id="cb38-13"><a href="#cb38-13"></a></span>
+<span id="cb38-14"><a href="#cb38-14"></a><span class="kw">state</span> <span class="va">&quot;Not Shooting State&quot;</span> <span class="kw">as</span> <span class="va">NotShooting</span> {</span>
+<span id="cb38-15"><a href="#cb38-15"></a>  <span class="kw">state</span> <span class="va">&quot;Idle mode&quot;</span> <span class="kw">as</span> <span class="va">Idle</span> &lt;&lt;<span class="va">Warning</span>&gt;&gt;</span>
+<span id="cb38-16"><a href="#cb38-16"></a>  <span class="kw">state</span> <span class="va">&quot;Configuring mode&quot;</span> <span class="kw">as</span> <span class="va">Configuring</span></span>
+<span id="cb38-17"><a href="#cb38-17"></a>  [*] <span class="op">--&gt;</span> Idle</span>
+<span id="cb38-18"><a href="#cb38-18"></a>  Idle <span class="op">--&gt;</span> Configuring : <span class="do">EvConfig</span></span>
+<span id="cb38-19"><a href="#cb38-19"></a>  Configuring <span class="op">--&gt;</span> Idle : <span class="do">EvConfig</span></span>
+<span id="cb38-20"><a href="#cb38-20"></a>}</span>
+<span id="cb38-21"><a href="#cb38-21"></a></span>
+<span id="cb38-22"><a href="#cb38-22"></a>NotShooting <span class="op">--&gt;</span> [*]</span>
+<span id="cb38-23"><a href="#cb38-23"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/283bbc73e8650084979fac33221be87d82cfda2f.svg" alt="puml" /></p>
 </div>
@@ -1060,27 +1123,27 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <h2>Usage avancé - Aspect visuel (suite)</h2>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb38"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">@startuml</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a></span>
-<span id="cb38-3"><a href="#cb38-3"></a><span class="kw">skinparam</span> backgroundColor #AAFFFF</span>
-<span id="cb38-4"><a href="#cb38-4"></a><span class="kw">skinparam</span> activity {</span>
-<span id="cb38-5"><a href="#cb38-5"></a>  StartColor red</span>
-<span id="cb38-6"><a href="#cb38-6"></a>  BarColor <span class="va">SaddleBrown</span></span>
-<span id="cb38-7"><a href="#cb38-7"></a>  EndColor <span class="va">Silver</span></span>
-<span id="cb38-8"><a href="#cb38-8"></a>  <span class="va">BackgroundColor</span> <span class="va">Peru</span></span>
-<span id="cb38-9"><a href="#cb38-9"></a>  <span class="va">BackgroundColor</span>&lt;&lt; Begin &gt;&gt; <span class="va">Olive</span></span>
-<span id="cb38-10"><a href="#cb38-10"></a>  BorderColor <span class="va">Peru</span></span>
-<span id="cb38-11"><a href="#cb38-11"></a>  FontName Impact</span>
-<span id="cb38-12"><a href="#cb38-12"></a>}</span>
-<span id="cb38-13"><a href="#cb38-13"></a></span>
-<span id="cb38-14"><a href="#cb38-14"></a>(*) <span class="op">--&gt;</span> <span class="st">&quot;Climbs on Platform&quot;</span> &lt;&lt; Begin &gt;&gt;</span>
-<span id="cb38-15"><a href="#cb38-15"></a><span class="op">--&gt;</span> === S1 ===</span>
-<span id="cb38-16"><a href="#cb38-16"></a><span class="op">--&gt;</span> Bows</span>
-<span id="cb38-17"><a href="#cb38-17"></a><span class="op">--&gt;</span> === S2 ===</span>
-<span id="cb38-18"><a href="#cb38-18"></a><span class="op">--&gt;</span> WavesArmes</span>
-<span id="cb38-19"><a href="#cb38-19"></a><span class="op">--&gt;</span> (*)</span>
-<span id="cb38-20"><a href="#cb38-20"></a></span>
-<span id="cb38-21"><a href="#cb38-21"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">@startuml</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a></span>
+<span id="cb39-3"><a href="#cb39-3"></a><span class="kw">skinparam</span> backgroundColor #AAFFFF</span>
+<span id="cb39-4"><a href="#cb39-4"></a><span class="kw">skinparam</span> activity {</span>
+<span id="cb39-5"><a href="#cb39-5"></a>  StartColor red</span>
+<span id="cb39-6"><a href="#cb39-6"></a>  BarColor <span class="va">SaddleBrown</span></span>
+<span id="cb39-7"><a href="#cb39-7"></a>  EndColor <span class="va">Silver</span></span>
+<span id="cb39-8"><a href="#cb39-8"></a>  <span class="va">BackgroundColor</span> <span class="va">Peru</span></span>
+<span id="cb39-9"><a href="#cb39-9"></a>  <span class="va">BackgroundColor</span>&lt;&lt; Begin &gt;&gt; <span class="va">Olive</span></span>
+<span id="cb39-10"><a href="#cb39-10"></a>  BorderColor <span class="va">Peru</span></span>
+<span id="cb39-11"><a href="#cb39-11"></a>  FontName Impact</span>
+<span id="cb39-12"><a href="#cb39-12"></a>}</span>
+<span id="cb39-13"><a href="#cb39-13"></a></span>
+<span id="cb39-14"><a href="#cb39-14"></a>(*) <span class="op">--&gt;</span> <span class="st">&quot;Climbs on Platform&quot;</span> &lt;&lt; Begin &gt;&gt;</span>
+<span id="cb39-15"><a href="#cb39-15"></a><span class="op">--&gt;</span> === S1 ===</span>
+<span id="cb39-16"><a href="#cb39-16"></a><span class="op">--&gt;</span> Bows</span>
+<span id="cb39-17"><a href="#cb39-17"></a><span class="op">--&gt;</span> === S2 ===</span>
+<span id="cb39-18"><a href="#cb39-18"></a><span class="op">--&gt;</span> WavesArmes</span>
+<span id="cb39-19"><a href="#cb39-19"></a><span class="op">--&gt;</span> (*)</span>
+<span id="cb39-20"><a href="#cb39-20"></a></span>
+<span id="cb39-21"><a href="#cb39-21"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/f40d315c8bbf0cc5a505396e0c0271eae09bfc2e.svg" alt="puml" /></p>
 </div>
@@ -1093,15 +1156,15 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <p>Il existe des dépôts pour <em>Amazon AWS</em>, <em>Kubernetes</em>, la suite <em>Office</em>, etc. Petit example (AWS):</p>
 <div class="pmw plantuml-content columns">
 <div class="pmw plantuml-code column">
-<div class="sourceCode" id="cb39"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">@startuml</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>!include &lt;aws/common&gt;</span>
-<span id="cb39-3"><a href="#cb39-3"></a>!include &lt;aws/Storage/AmazonS3/AmazonS3&gt;</span>
-<span id="cb39-4"><a href="#cb39-4"></a>!include &lt;aws/Storage/AmazonS3/bucket/bucket&gt;</span>
-<span id="cb39-5"><a href="#cb39-5"></a></span>
-<span id="cb39-6"><a href="#cb39-6"></a>AMAZONS3(s3_internal)</span>
-<span id="cb39-7"><a href="#cb39-7"></a>AMAZONS3(s3_partner,<span class="st">&quot;Vendor&#39;s S3&quot;</span>)</span>
-<span id="cb39-8"><a href="#cb39-8"></a>s3_internal <span class="op">&lt;-</span> s3_partner</span>
-<span id="cb39-9"><a href="#cb39-9"></a><span class="kw">@enduml</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode plantuml column-split"><code class="sourceCode plantuml"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">@startuml</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>!include &lt;aws/common&gt;</span>
+<span id="cb40-3"><a href="#cb40-3"></a>!include &lt;aws/Storage/AmazonS3/AmazonS3&gt;</span>
+<span id="cb40-4"><a href="#cb40-4"></a>!include &lt;aws/Storage/AmazonS3/bucket/bucket&gt;</span>
+<span id="cb40-5"><a href="#cb40-5"></a></span>
+<span id="cb40-6"><a href="#cb40-6"></a>AMAZONS3(s3_internal)</span>
+<span id="cb40-7"><a href="#cb40-7"></a>AMAZONS3(s3_partner,<span class="st">&quot;Vendor&#39;s S3&quot;</span>)</span>
+<span id="cb40-8"><a href="#cb40-8"></a>s3_internal <span class="op">&lt;-</span> s3_partner</span>
+<span id="cb40-9"><a href="#cb40-9"></a><span class="kw">@enduml</span></span></code></pre></div>
 </div><div class="pmw plantuml-output column">
 <p><img data-src="./media/ab78a4e540fa130b97c719ffd98921a7ba79858b.svg" alt="puml" /></p>
 </div>
