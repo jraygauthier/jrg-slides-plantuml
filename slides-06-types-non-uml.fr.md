@@ -221,7 +221,7 @@ digraph foo {
 Le diagram parfait pour les artistes ASCII. Via outil
 [`ditaa`](http://ditaa.sourceforge.net/) installable et utilisable séparément.
 
-```{.plantuml .column-split}
+```{.plantuml .column-split output=png}
 @startditaa
 +--------+   +-------+    +-------+
 |        +---+ ditaa +--> |       |

@@ -122,6 +122,7 @@ SLIDES_FR_SRCS := $(shell \
 	clean-revealjs \
 	revealjs \
 	revealjs-and-preview \
+	preview-revealjs \
 	clean-revealjs-local-assets
 	revealjs-local-assets \
 
@@ -186,7 +187,9 @@ revealjs: revealjs-local-assets $(SLIDES_FR_SRCS)
 		$(SLIDES_FR_SRCS)
 
 
-revealjs-and-preview: revealjs
+revealjs-and-preview: | revealjs preview-revealjs
+
+preview-revealjs:
 	firefox ./slides-revealjs.fr.html
 
 clean-revealjs-local-assets:
