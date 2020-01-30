@@ -7,37 +7,31 @@ de la schématisation DB.
 
 ```{.plantuml .column-split}
 @startuml
-
-' hide the spot
-hide circle
-
-' avoid problems with angled crows feet
 skinparam linetype ortho
 
-entity "Entity01" as e01 {
-  *e1_id : number <<generated>>
+entity "Class" as e_class {
+  *class_id : number <<generated>>
   --
   *name : text
-  description : text
 }
 
-entity "Entity02" as e02 {
-  *e2_id : number <<generated>>
+entity "Student" as e_student {
+  *student_id : number <<generated>>
   --
-  *e1_id : number <<FK>>
+  class_id : number <<FK>>
+  phone_number : text
+}
+
+entity "Teacher" as e_teacher {
+  *teacher_id : number <<generated>>
+  --
+  *class_id : number <<FK>>
   other_details : text
 }
 
-entity "Entity03" as e03 {
-  *e3_id : number <<generated>>
-  --
-  e1_id : number <<FK>>
-  other_details : text
-}
-
-e01 ||..o{ e02
-e01 |o..o{ e03
-
+e_class }|..o{ e_student: includes / goes to
+e_class ||..o{ e_teacher: is taught / teaches
+e_student }|..|{ e_teacher: has
 @enduml
 ```
 

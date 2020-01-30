@@ -4,14 +4,48 @@
 
 ```{.plantuml .column-split}
 @startuml
-alice -> bob ++ : hello
-bob -> bob ++ : self call
-bob -> bib ++  #005500 : hello
-bob -> george ** : create
-return done
-return rc
-bob -> george !! : delete
+hide footbox
+actor user
+participant webfrontend
+participant webserver
+participant hwdevice
+participant os
+
+user -> hwdevice ++ : power on
+hwdevice -> hwdevice ++: boot process
+hwdevice -> os ++: boot loader
+os -> webserver **: launch
+activate webserver
 return success
+os -> webfrontend **: launch
+activate webfrontend
+webfrontend -> webserver ++: request html ui
+return html ui
+webfrontend --> os : success
+deactivate webfrontend
+@enduml
+```
+
+## Types de diagrammes - Sequence (suite)
+
+```{.plantuml .column-split}
+@startuml
+hide footbox
+actor user
+participant webfrontend
+participant webserver
+participant hwdevice
+participant os
+
+user ->> webfrontend ++: click on process button
+webfrontend -> webserver ++: request processing result
+webserver -> hwdevice ++: request sensor state\nsample (camera, etc)
+return sensors states
+webserver -> webserver ++: process sensor states
+return result
+webfrontend -> webfrontend ++: render into images
+return images
+webfrontend ->> user: images as light
 @enduml
 ```
 
@@ -22,12 +56,31 @@ return success
 
 ```{.plantuml .column-split}
 @startuml
-Object <|-- ArrayList
+interface Animal {
+    +get_name(): str
+    +get_legs(): Leg[]
+}
 
-Object : equals()
-ArrayList : Object[] elementData
-ArrayList : size()
+class Leg
+class Fin
+class Dog {
+    +barks()
+}
+class Master: {
+    +run()
+}
 
+Animal <|-- Dog: inherits
+Animal <|-- Dolphin: inherits
+Lion -|> Animal: inherits
+
+Lion o--> "0-1" Dog: hold in its mouth
+Lion o--> "0-1" Master: hold in its mouth
+Dog *--> "4" Leg: has
+Dolphin *--> "0" Leg
+Dolphin *--> "1" Fin
+
+Dog ..> Master: depends on its
 @enduml
 ```
 
@@ -36,23 +89,35 @@ ArrayList : size()
 
 ## Types de diagrammes - Activity
 
+
+
 ```{.plantuml .column-split}
 @startuml
-:foo1;
--> You can put text on arrows;
-if (test) then
-  -[#blue]->
-  :foo2;
-  -[#green,dashed]-> The text can
-  also be on several lines
-  and **very** long...;
-  :foo3;
-else
-  -[#black,dotted]->
-  :foo4;
-endif
--[#gray,bold]->
-:foo5;
+start
+-> <u>**Systemd supports parallel boot!**</u>;
+partition "System Boot" {
+  fork
+    partition "Update System" {
+      if (requires updates?) then
+        repeat :Download <u>*app*</u> update package;
+        repeat while (not ok and retry count\nnot exhausted)
+        if (download package?) then
+          -[#green]->
+          :Installing new <u>*app*</u> package;
+        else
+          -[#red]-> Cannot proceed, this is not safe!
+          **shuting down** the system...;
+          end
+        endif
+      endif
+    }
+  fork again
+    :Launching postgres db;
+    :Launching application backend;
+  end fork
+}
+:Lauching application;
+stop
 @enduml
 ```
 
@@ -89,26 +154,29 @@ WB@0 <-> @50 : {50 ms lag}
 
 ```{.plantuml .column-split}
 @startuml
-scale 350 width
-[*] --> NotShooting
+state "Awaiting input" as State1
+state "Looking for matches" as State2
+state "Processing selection" as State4
 
-state NotShooting {
-  [*] --> Idle
-  Idle --> Configuring : EvConfig
-  Configuring --> Idle : EvConfig
+[*] -> State1
+State1 --> State2 : Input received
+State1 --> [*] : Timeout
+State2 --> State1 : No matches / To many matches
+State2 --> State4 : Single match
+State2 --> State3 : Multiple maches found
+state State3 {
+  [*] --> State3A
+  state "CursorOnMatch1" as State3A
+  state "CursorOnMatch2" as State3B
+  State3A --> State3B: Arrow down
+  State3A --> [*]: Enter / Esc / Ctrl+c
+  State3B --> State3A: Arrow up
+  State3B --> [*]: Enter / Esc / Ctrl+c
 }
 
-state Configuring {
-  [*] --> NewValueSelection
-  NewValueSelection --> NewValuePreview : EvNewValue
-  NewValuePreview --> NewValueSelection : EvNewValueRejected
-  NewValuePreview --> NewValueSelection : EvNewValueSaved
-  
-  state NewValuePreview {
-    State1 -> State2
-  }
-  
-}
+State3 --> [*] : Selection rejected / Aborted
+State3 --> State4 : Single match selected
+State4 --> [*]: Done
 @enduml
 ```
 
