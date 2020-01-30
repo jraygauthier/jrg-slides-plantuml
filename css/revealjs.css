@@ -30,7 +30,7 @@
 
 .reveal .pmw div.plantuml-output {
   margin: 0.5em 0;
-  height: 90vh;
+  height: 725px;
 }
 
 .reveal .pmw .plantuml-output p {
@@ -71,36 +71,3 @@
   max-height: 100%;
   word-wrap: normal;
 }
-
-/*
-.reveal pre {
-  display: block;
-  position: relative;
-  width: 100%;
-  margin: 0px auto;
-  text-align: left;
-  font-size: 0.55em;
-  font-family: monospace;
-  line-height: 0.5em;
-  word-wrap: break-word;
-  box-shadow: none;
-}
-
-
-.reveal div.sourceCode {
-  margin: 0em 0;
-}
-
-.reveal pre.sourceCode {
-  margin: 0;
-}
-
-.reveal pre code {
-  display: block;
-  padding: 15px;
-  overflow: auto;
-  max-height: 100%;
-  word-wrap: normal;
-}
-
-*/
