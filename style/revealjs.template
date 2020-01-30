@@ -285,13 +285,13 @@ $endif$
     		fullscreen: true,
 
     		// Add button to toggle the overview mode on and off
-    		overview: true,
+    		overview: false,
 
     		// Add button to pause (hide) the presentation display
     		pause: false,
 
     		// Add button to show the speaker notes
-    		notes: true,
+    		notes: false,
 
     		// Add button to show the help overlay
     		help: false,

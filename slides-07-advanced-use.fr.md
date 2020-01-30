@@ -44,6 +44,43 @@
 
     En particulier pratique pour les styles mais sans y être limité.
 
+ -  Par example:
+
+    :::: columns
+    ::: column
+
+    <!--
+    ```plantuml
+    @startmindmap
+    * ""/path/to/my/includes/dir""
+    ** ""my-cross-project.iuml""
+    ** ""my-other-cross-project.iuml""
+    @endmindmap
+    ```
+    -->
+
+    ```bash
+    $ tree /path/to/my/includes/dir
+    /path/to/my/includes/dir
+    ├── my-cross-project.iuml
+    └── my-other-cross-project.iuml
+
+    0 directories, 1 file
+    ```
+
+    :::
+    ::: column
+
+    ```{.plantuml code_block=true}
+    @startuml
+    !%include my-cross-project.iuml
+    ' Use my shared library.
+    my_fn("my-arg1", 22, "blablabla")
+    @enduml
+    ```
+
+    :::
+    ::::
 
 ## Usage avancé - Réutilisation
 
@@ -54,17 +91,68 @@
 
  -  On peut par example penser à un diagramme paramétrable.
 
-    `./my-parametrizable.iuml`:
+    :::: columns
+    ::: column
 
-    ```{.plantuml code_block=true}
-    'TODO: Example
+    `./my-parameterizable.iuml`:
+
+    ```{.plantuml .stretch code_block=true}
+    !function $var_exists_or_default($varname, $default_value)
+    !if (%not(%variable_exists($varname)))
+    %set_variable_value($varname, $default_value)
+    !endif
+    !endfunction
+
+    $var_exists_or_default("$my_param_a", 5)
+    $var_exists_or_default("$my_param_b", 10)
+
+    robust "MyEntity" as myEntity
+
+    @$my_param_a
+    myEntity is StateA
+    @$my_param_b
+    myEntity is StateB
+    !$my_computed_c = $my_param_a + $my_param_b
+    @$my_computed_c
+    myEntity is StateC
     ```
 
-    `./my-concrete-diagram.puml`:
+    :::
+    ::: column
 
-    ```{.plantuml code_block=true}
-    'TODO: Example
+     -  Lorsque paramétré par `./my-concrete-diagram.puml`
+
+        ```{.plantuml code_block=true}
+        !$my_param_a = 20
+        !include ./my-parameterizable.iuml
+        ```
+
+        resultat page suivante.
+
+    :::
+    ::::
+
+## Usage avancé - Réutilisation (suite)
+
+ -  Donne:
+
+    ```{.plantuml}
+    !$my_param_a = 20
+    !$my_param_b = 10
+
+    robust "MyEntity" as myEntity
+
+    @$my_param_a
+    myEntity is StateA
+    @$my_param_b
+    myEntity is StateB
+    !$my_computed_c = $my_param_a + $my_param_b
+    @$my_computed_c
+    myEntity is StateC
     ```
+
+ -  On remarque `StateC` commence à `30` plutôt que `15` que l'on aurait obtenu
+    par défaut.
 
 
 ## Usage avancé - Éviter la répétition
@@ -77,9 +165,66 @@
  -  Il est en effet possible de répéter un bout de diagramme plusieurs fois via
     une fonction récursive:
 
+    :::: columns
+    ::: column
+
     ```{.plantuml code_block=true}
-    'TODO: Example
+    @startuml
+    !function $my_recursive_fn($rec_it, $n_times)
+    !if ($rec_it < $n_times)
+
+    ' **Pattern** to be repeated here.
+
+    'Recurse
+    $my_recursive_fn($rec_it + 1, $n_times)
+    !endif
+    !endfunction
+
+    ' Will repeat **Pattern** trice.
+    $my_recursive_fn(0, 3)
+    @enduml
     ```
+
+    :::
+    ::: column
+
+
+    ```{.plantuml code_block=true}
+    @startuml
+    ' **Pattern** to be repeated here.
+    ' **Pattern** to be repeated here.
+    ' **Pattern** to be repeated here.
+    @enduml
+    ```
+
+    :::
+    ::::
+
+## Usage avancé - Éviter la répétition (suite)
+
+Un example concret:
+
+```{.plantuml .column-split}
+@startuml
+interface MyInterface
+
+!function $my_recursive_fn($rec_it, $n_times)
+!if ($rec_it <= $n_times)
+
+'**Pattern**
+MyInterface <|-- MyDescendant##$rec_it
+
+'Recurse
+$my_recursive_fn($rec_it + 1, $n_times)
+!endif
+!endfunction
+
+' Will repeat **Pattern** trice.
+$my_recursive_fn(0, 3)
+@enduml
+```
+
+ -  [Plus de détails: PlantUML - Preprocessing](https://plantuml.com/preprocessing)
 
 
 ## Usage avancé - Aspect visuel
