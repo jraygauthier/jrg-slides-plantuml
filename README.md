@@ -3,7 +3,7 @@ Readme
 
 A plantuml reveal-js slide show.
 
-Currently only available *en français*.
+Currently only [available *en français*].
 
 This might come to act as a scaffolding project for subsequent presentation.
 
@@ -107,6 +107,7 @@ Credits to the original author of the multiple plantuml example taken either as
 is or adapted from <https://plantuml.com/>.
 
 
+[available *en français*]: https://amotus.github.io/jrg-slides-plantuml/.
 [nix]: https://nixos.org/nix/download.html
 [Giphy]:https://giphy.com/
 [GitHub Pages]: https://pages.github.com/
