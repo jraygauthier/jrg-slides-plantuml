@@ -83,12 +83,12 @@
      -  Filtres [pandoc]
      -  *Syntax highlight* pour plantuml
 
- -  Pour les intéressés, il est possibles que les sources de cette présentation
-    soient publiées sur l'un des compte GitHub suivant:
+ -  Pour les intéressés, le code source permettant de compiler cette
+    présentation ainsi que le résultat de cette compilation ont été rendu
+    publics aux emplacements respectif suivants:
 
-     -  <https://github.com/amotus>
-     -  <https://github.com/jraygauthier>
-     -  À suivre.
+     -  <https://github.com/amotus/jrg-slides-plantuml>
+     -  <https://amotus.github.io/jrg-slides-plantuml/>
 
 
 [Pandoc's Markdown]: https://pandoc.org/MANUAL.html#pandocs-markdown
