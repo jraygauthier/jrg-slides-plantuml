@@ -4,6 +4,11 @@
 /slides-*.docx
 /*slides-*.zip
 /revealjs-assets
+/revealjs-assets/
+/revealjs-toolbar-assets
+/revealjs-toolbar-assets/
+/revealjs-menu-assets
+/revealjs-menu-assets/
 /media/
 **/.pytest_cache/
 **/__pycache__/

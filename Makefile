@@ -9,9 +9,11 @@ PMW_SYNTAX_DIR=$(PANDOC_MD_WIKI_PANDOC_SYNTAX)
 REVEALJS_DEV_MODE := 0
 
 REVEALJS_ASSETS_DIRNAME=revealjs-assets
+REVEALJS_TOOLBAR_ASSETS_DIRNAME=revealjs-toolbar-assets
+REVEALJS_MENU_ASSETS_DIRNAME=revealjs-menu-assets
 
 ifeq ($(REVEALJS_DEV_MODE), 1)
-  # REVEALJS_URL=$(REVEAL_JS_SRC)
+  # REVEALJS_URL=$(REVEALJS_ASSETS)
   REVEALJS_URL=./$(REVEALJS_ASSETS_DIRNAME)
 else
   # Bundle mode:
@@ -139,7 +141,9 @@ publish-site: \
 	publish-slides
 
 clean-published-slides:
-	rm -rf ./docs/revealjs-assets
+	rm -rf ./docs/$(REVEALJS_ASSETS_DIRNAME)
+	rm -rf ./docs/$(REVEALJS_TOOLBAR_ASSETS_DIRNAME)
+	rm -rf ./docs/$(REVEALJS_MENU_ASSETS_DIRNAME)
 	rm -rf ./docs/media
 	rm -rf ./docs/css
 	rm -f ./docs/*.fr.html
@@ -148,7 +152,9 @@ publish-slides: | slides publish-slides-current
 
 publish-slides-current: | clean-published-slides
 	mkdir -p ./docs
-	cp --no-preserve=mode -r -H ./revealjs-assets ./docs/revealjs-assets
+	cp --no-preserve=mode -r -H ./$(REVEALJS_ASSETS_DIRNAME) ./docs/$(REVEALJS_ASSETS_DIRNAME)
+	cp --no-preserve=mode -r -H ./$(REVEALJS_TOOLBAR_ASSETS_DIRNAME) ./docs/$(REVEALJS_TOOLBAR_ASSETS_DIRNAME)
+	cp --no-preserve=mode -r -H ./$(REVEALJS_MENU_ASSETS_DIRNAME) ./docs/$(REVEALJS_MENU_ASSETS_DIRNAME)
 	cp -r ./media ./docs/media
 	cp -r ./css ./docs/css
 	cp ./slides-revealjs.fr.html ./docs/slides-revealjs.fr.html
@@ -194,7 +200,12 @@ preview-revealjs:
 
 clean-revealjs-local-assets:
 	! test -e ./$(REVEALJS_ASSETS_DIRNAME) || unlink ./$(REVEALJS_ASSETS_DIRNAME)
+	! test -e ./$(REVEALJS_TOOLBAR_ASSETS_DIRNAME) || unlink ./$(REVEALJS_TOOLBAR_ASSETS_DIRNAME)
+	! test -e ./$(REVEALJS_MENU_ASSETS_DIRNAME) || unlink ./$(REVEALJS_MENU_ASSETS_DIRNAME)
+
 
 revealjs-local-assets:
-	ln -fsT "$(REVEAL_JS_SRC)" ./$(REVEALJS_ASSETS_DIRNAME)
+	ln -fsT "$(REVEALJS_ASSETS)" ./$(REVEALJS_ASSETS_DIRNAME)
+	ln -fsT "$(REVEALJS_TOOLBAR_ASSETS)" ./$(REVEALJS_TOOLBAR_ASSETS_DIRNAME)
+	ln -fsT "$(REVEALJS_MENU_ASSETS)" ./$(REVEALJS_MENU_ASSETS_DIRNAME)
 
