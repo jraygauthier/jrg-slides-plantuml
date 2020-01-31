@@ -106,6 +106,10 @@ Credits to the original authors of the following [Giphy] animated `*.gif`:
 Credits to the original author of the multiple plantuml example taken either as
 is or adapted from <https://plantuml.com/>.
 
+Credits to some of my colleagues for landing me some more concrete diagrams of
+their own:
+
+ -  *Francis Lachapelle*: Timing diagram example
 
 [available *en français*]: https://amotus.github.io/jrg-slides-plantuml/.
 [nix]: https://nixos.org/nix/download.html

@@ -66,7 +66,7 @@ class Fin
 class Dog {
     +barks()
 }
-class Master: {
+class Master {
     +run()
 }
 
@@ -128,24 +128,36 @@ stop
 
 ```{.plantuml .column-split}
 @startuml
-robust "Web Browser" as WB
-concise "Web User" as WU
+scale 1 as 100 pixels
+Title Power of a street light as a function of time
+legend
+february 18 2017
+end legend
+header: Test MY-MODEL
 
-WB is Initializing
-WU is Absent
+robust "Street light power 80000 (kWh) as P" as P
+robust "Requested (%)" as R
+P has 0.07,0.06,0.05,0.04,0.03,0.02,0.01,0.00
+R has 100,90,80,70,60,50,40,30,20,10,0
 
-@WB
-0 is idle
-+200 is Processing
-+100 is Waiting
-WB@0 <-> @50 : {50 ms lag}
-
-@WU
-0 is Waiting
-+500 is ok
-@200 <-> @+150 : {150 ms}
+@0
+P is 0.00: 15:00
+R is 0
+@1
+P is 0.00
+R is 0
+@2
+P is 0.02 : 17:00
+R is 30
+@3
+P is 0.08 : Sun set
+R is 80
+@4
+P is 0.04
+R is 80
 @enduml
 ```
+
 
  -  [Plus de détails: PlantUML - Timing](https://plantuml.com/timing-diagram)
 

@@ -49,7 +49,7 @@
     ```
 
     À noter `GRAPHVIZ_DOT` permettant de spécifier l'emplacement d'installation
-    de l'exécutable `dot`:
+    de l'exécutable `dot`.
 
  -  Il pourrait être également utile (dépendamment des outils utilisés) d'exposer
     l'emplacement d'installation de `plantuml.jar` via `PLANTUML_JAR_PATH`.

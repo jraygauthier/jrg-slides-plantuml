@@ -209,7 +209,7 @@ Un example concret:
 interface MyInterface
 
 !function $my_recursive_fn($rec_it, $n_times)
-!if ($rec_it <= $n_times)
+!if ($rec_it < $n_times)
 
 '**Pattern**
 MyInterface <|-- MyDescendant##$rec_it
