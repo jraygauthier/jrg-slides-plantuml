@@ -111,6 +111,16 @@ their own:
 
  -  *Francis Lachapelle*: Timing diagram example
 
+Todo
+----
+
+A list of various improvements that would enhance this presentation
+or this method of doing presentations. See:
+
+[TODO.md](./TODO.md).
+
+
+
 [available *en français*]: https://amotus.github.io/jrg-slides-plantuml/.
 [nix]: https://nixos.org/nix/download.html
 [Giphy]:https://giphy.com/

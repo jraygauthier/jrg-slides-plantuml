@@ -116,6 +116,8 @@ SLIDES_FR_SRCS := $(shell \
 	all \
 	clean-published-site \
 	publish-site \
+	clean-published-index \
+	publish-index \
 	clean-published-slides \
 	publish-slides \
 	publish-slides-current \
@@ -135,10 +137,22 @@ clean: \
 	clean-slides
 
 clean-published-site: \
+	clean-published-index \
 	clean-published-slides
 
 publish-site: \
+	publish-index \
 	publish-slides
+
+clean-published-index:
+	rm -f ./docs/index.md
+
+publish-index: | clean-published-index
+	mkdir -p ./docs
+	@# Note: you might find this funny that the file is not compiled
+	@# into 'index.html'. This is because github pages **really** expect
+	@# 'index.md' and builds it using jekyll.
+	cp ./index.md ./docs/index.md
 
 clean-published-slides:
 	rm -rf ./docs/$(REVEALJS_ASSETS_DIRNAME)
