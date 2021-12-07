@@ -87,7 +87,7 @@
     présentation ainsi que le résultat de cette compilation ont été rendu
     publics aux emplacements respectif suivants:
 
-     -  <https://github.com/amotus/jrg-slides-plantuml>
+     -  <https://github.com/jraygauthier/jrg-slides-plantuml>
      -  <https://amotus.github.io/jrg-slides-plantuml/>
 
 

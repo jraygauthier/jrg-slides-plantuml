@@ -15,7 +15,7 @@ I have been authorized to make the source code public, here's the source code
 ([nix] environment, makefile and all) used to build the slide show ([pandoc -
 markdown] content) using both [pandoc] and [plantuml]:
 
- -  <https://github.com/amotus/jrg-slides-plantuml>
+ -  <https://github.com/jraygauthier/jrg-slides-plantuml>
 
 
 [plantuml]: https://plantuml.com/
