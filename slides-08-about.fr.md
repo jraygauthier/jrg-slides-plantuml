@@ -88,7 +88,7 @@
     publics aux emplacements respectif suivants:
 
      -  <https://github.com/jraygauthier/jrg-slides-plantuml>
-     -  <https://amotus.github.io/jrg-slides-plantuml/>
+     -  <https://jraygauthier.github.io/jrg-slides-plantuml/>
 
 
 [Pandoc's Markdown]: https://pandoc.org/MANUAL.html#pandocs-markdown
